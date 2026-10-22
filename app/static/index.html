@@ -219,7 +219,8 @@ async function decide(decision) {
 }
 
 loadHealth().catch(e => { $("#health").textContent = e.message; });
-loadTargets().catch(() => {});
+const linked = location.hash.match(/target=(\d+)/);
+(linked ? selectTarget(+linked[1]) : loadTargets()).catch(() => {});
 </script>
 </body>
 </html>
