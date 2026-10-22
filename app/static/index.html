@@ -6,16 +6,220 @@
   <title>TargetWatch</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <main class="max-w-xl mx-auto p-8">
-    <h1 class="text-3xl font-semibold">TargetWatch</h1>
-    <p class="mt-2 text-slate-600">Hello from Aiven Runtime.</p>
-    <p class="mt-6 text-sm">Database: <span id="db" class="font-mono">checking…</span></p>
+<body class="bg-slate-50 text-slate-900 text-sm">
+  <header class="bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-baseline gap-x-4">
+      <h1 class="text-xl font-semibold">TargetWatch</h1>
+      <span class="text-slate-500">Open Targets + ClinicalTrials.gov → Analyst + Skeptic agents</span>
+      <span id="health" class="ml-auto text-xs text-slate-500"></span>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-4 py-4 grid gap-4 lg:grid-cols-4">
+    <aside class="space-y-3">
+      <form id="add" class="bg-white border rounded-lg p-3 space-y-2">
+        <div class="font-medium">Track a target</div>
+        <input name="symbol" required placeholder="Target, e.g. CLDN18.2" class="w-full border rounded px-2 py-1">
+        <input name="indication" required placeholder="Indication, e.g. gastric cancer" class="w-full border rounded px-2 py-1">
+        <button class="w-full bg-slate-900 text-white rounded py-1.5">Add</button>
+        <div id="addmsg" class="text-xs"></div>
+      </form>
+      <div id="targets" class="space-y-2"></div>
+    </aside>
+    <section id="detail" class="lg:col-span-3 space-y-4">
+      <div class="bg-white border rounded-lg p-6 text-slate-500">
+        Add a target (try <b>CLDN18.2</b> + <b>gastric cancer</b>), take a simulated baseline, run the agents, then press <b>What changed?</b>
+      </div>
+    </section>
   </main>
-  <script>
-    fetch("/api/health").then(r => r.json()).then(h => {
-      document.getElementById("db").textContent = h.database;
-    }).catch(e => { document.getElementById("db").textContent = "error: " + e; });
-  </script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const num = (x, d = 2) => typeof x === "number" ? x.toFixed(d) : esc(x ?? "–");
+const VERDICT = {advance: "bg-emerald-600", watch: "bg-amber-500", kill: "bg-rose-600"};
+const SEVERITY = {red: "border-rose-500", amber: "border-amber-400", green: "border-emerald-500"};
+const HALTED = ["TERMINATED", "WITHDRAWN", "SUSPENDED"];
+const ACTIVE = ["RECRUITING", "ACTIVE_NOT_RECRUITING", "NOT_YET_RECRUITING", "ENROLLING_BY_INVITATION"];
+const SIM = `<span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-semibold" title="Baseline as of 90 days ago: trials updated since then were removed. Open Targets values come from today's release (no historical API).">SIMULATED</span>`;
+const pill = v => v ? `<span class="px-2 py-0.5 rounded text-white text-xs font-semibold uppercase ${VERDICT[v] || "bg-slate-400"}">${esc(v)}</span>` : "";
+let current = null, currentRun = null, timer = null, MODEL = "";
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, {headers: {"Content-Type": "application/json"}, ...opts});
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(typeof body.detail === "string" ? body.detail : `${r.status} ${r.statusText}`);
+  return body;
+}
+
+async function loadHealth() {
+  const h = await api("/api/health");
+  MODEL = h.model;
+  $("#health").textContent = `DB ${h.database} · ${h.model} · API key ${h.anthropic_key ? "set" : "MISSING"}`;
+}
+
+async function loadTargets() {
+  const ts = await api("/api/targets");
+  $("#targets").innerHTML = ts.map(t => `
+    <button onclick="selectTarget(${t.id})" class="w-full text-left bg-white border rounded-lg p-2 hover:border-slate-400 ${t.id === current ? "ring-2 ring-slate-900" : ""}">
+      <div class="flex items-center gap-2"><span class="font-semibold">${esc(t.symbol)}</span>${pill(t.verdict)}</div>
+      <div class="text-xs text-slate-500">${esc(t.disease_name)} · ${t.snapshots} snapshot(s)</div>
+    </button>`).join("");
+}
+
+$("#add").onsubmit = async e => {
+  e.preventDefault();
+  const f = new FormData(e.target), msg = $("#addmsg");
+  msg.className = "text-xs text-slate-500";
+  msg.textContent = "Resolving in Open Targets…";
+  try {
+    const t = await api("/api/targets", {method: "POST", body: JSON.stringify({symbol: f.get("symbol"), indication: f.get("indication")})});
+    msg.textContent = "";
+    e.target.reset();
+    await selectTarget(t.id);
+  } catch (err) { msg.className = "text-xs text-rose-600"; msg.textContent = err.message; }
+};
+
+async function selectTarget(id) { current = id; await loadTargets(); await renderDetail(); }
+
+const card = (title, body) => `<div class="bg-white border rounded-lg p-4"><div class="font-medium mb-2">${title}</div>${body}</div>`;
+const stat = (label, value) => `<div><div class="text-xs text-slate-500">${label}</div><div class="font-semibold">${value}</div></div>`;
+
+async function renderDetail() {
+  const d = await api(`/api/targets/${current}`);
+  const t = d.target, s = d.snapshot, has = d.snapshots.length > 0;
+  const actions = `
+    <div class="flex flex-wrap gap-2">
+      ${has ? "" : `<button onclick="takeSnapshot(true)" class="border border-amber-500 text-amber-800 rounded px-3 py-1">Simulated baseline (90 days ago)</button>`}
+      <button onclick="takeSnapshot(false)" class="border rounded px-3 py-1">Fetch now</button>
+      ${has ? `<button onclick="startRun('memo')" class="bg-slate-900 text-white rounded px-3 py-1">Run Analyst + Skeptic</button>
+               <button onclick="startRun('whats_changed')" class="bg-indigo-600 text-white rounded px-3 py-1">What changed?</button>` : ""}
+      <span id="busy" class="text-slate-500 self-center"></span>
+    </div>
+    <div class="flex flex-wrap gap-1 mt-2 text-xs text-slate-500">${d.snapshots.map(x =>
+      `<span class="border rounded px-1.5 py-0.5">#${x.id} as of ${esc(x.as_of)} ${x.simulated ? SIM : "live"}</span>`).join("")}</div>`;
+  const title = `${esc(t.approved_symbol)} <span class="text-slate-500 font-normal">· ${esc(t.disease_name)} (${esc(t.disease_id)}) · ${esc(t.ensembl_id)}${t.aliases.length ? " · alias " + esc(t.aliases.join(", ")) : ""}</span>`;
+  $("#detail").innerHTML = card(title, actions) + (s ? evidenceHtml(s) + trialsHtml(s) : "") + `<div id="run"></div>` + decisionsHtml(d.decisions);
+  if (d.runs.length) showRun(d.runs[0].id);
+}
+
+function evidenceHtml(s) {
+  const f = s.facts, ot = s.ot;
+  const bars = Object.entries(ot.datatypes).map(([k, v]) => `
+    <div class="flex items-center gap-2"><span class="w-36 text-xs text-slate-600">${esc(k)}</span>
+      <div class="flex-1 bg-slate-100 rounded h-2"><div class="bg-indigo-500 h-2 rounded" style="width:${Math.round(v * 100)}%"></div></div>
+      <span class="w-10 text-right text-xs">${num(v)}</span></div>`).join("");
+  return card("Evidence", `
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="space-y-1">${stat("Open Targets association (overall / direct)", `${num(ot.overall)} / ${num(ot.direct)}`)}${bars}</div>
+      <div class="grid grid-cols-2 gap-3 content-start">
+        ${stat("Antibody tractability buckets", f["ot.tract.AB"])}
+        ${stat("Small-molecule buckets", f["ot.tract.SM"])}
+        ${stat("Safety liabilities", f["ot.safety.count"])}
+        ${stat("DepMap", ot.depmap.is_essential ? "common essential" : `not essential (median ${num(ot.depmap.median_effect)})`)}
+        ${stat("Drugs on target", `${f["ot.drugs.count"]} · top ${esc(f["ot.drugs.max_stage"])}`)}
+        ${stat("Lead drugs", esc(ot.drugs.slice(0, 3).map(x => x.name).join(", ") || "–"))}
+        ${stat("Trials active / total", `${f["ct.active"]} / ${f["ct.total"]}`)}
+        ${stat("Highest phase · halted ≤365 d", `${esc(f["ct.highest_phase"])} · ${f["ct.halted_365d"]}`)}
+      </div>
+    </div>
+    <div class="text-xs text-slate-400 mt-2">Snapshot as of ${esc(s.as_of)} ${s.simulated ? SIM : ""} · Open Targets ${esc(ot.release)}</div>`);
+}
+
+function trialsHtml(s) {
+  const color = st => HALTED.includes(st) ? "text-rose-700" : ACTIVE.includes(st) ? "text-emerald-700" : "";
+  const rows = s.trials.map(t => `<tr class="border-t">
+    <td class="py-1 pr-2"><a class="text-indigo-700 underline" target="_blank" href="https://clinicaltrials.gov/study/${esc(t.nct)}">${esc(t.nct)}</a></td>
+    <td class="pr-2">${esc(t.phase)}</td><td class="pr-2 ${color(t.status)}">${esc(t.status)}</td>
+    <td class="pr-2 whitespace-nowrap">${esc(t.last_update)}</td><td class="pr-2">${esc(t.sponsor)}</td>
+    <td class="text-slate-600">${esc((t.title || "").slice(0, 90))}</td></tr>`).join("");
+  return card(`Trials <span class="text-slate-500 font-normal">(${s.trials_total} matched; ${s.trials.length} most recently updated shown)</span>`,
+    `<div class="overflow-x-auto"><table class="w-full text-xs"><thead class="text-left text-slate-500"><tr><th>NCT</th><th>Phase</th><th>Status</th><th>Updated</th><th>Sponsor</th><th>Title</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+}
+
+function decisionsHtml(ds) {
+  if (!ds.length) return "";
+  return card("Decisions", ds.map(x => `<div class="py-1">${pill(x.decision)} ${esc((x.reasons || []).join(", "))} ${x.note ? "· " + esc(x.note) : ""}
+    <span class="text-xs text-slate-400">· agent said ${esc(x.agent_verdict || "–")} · ${esc(String(x.created_at).slice(0, 16))}</span></div>`).join(""));
+}
+
+async function takeSnapshot(simulated) {
+  $("#busy").textContent = "Fetching Open Targets + ClinicalTrials.gov…";
+  try {
+    await api(`/api/targets/${current}/snapshots`, {method: "POST", body: JSON.stringify({simulated})});
+    await loadTargets();
+    await renderDetail();
+  } catch (err) { $("#busy").textContent = err.message; }
+}
+
+async function startRun(kind) {
+  try {
+    const r = await api(`/api/targets/${current}/runs`, {method: "POST", body: JSON.stringify({kind})});
+    showRun(r.id, true);
+  } catch (err) { $("#busy").textContent = err.message; }
+}
+
+function stepHtml(st) {
+  const color = {analyst: "text-sky-300", skeptic: "text-rose-300", fetcher: "text-slate-300"}[st.agent] || "";
+  let what;
+  if (st.type === "llm") what = `Claude call ${(st.latency_ms / 1000).toFixed(1)} s · ${st.input_tokens} in / ${st.output_tokens} out · ${esc(st.stop_reason)}${st.model && st.model !== MODEL ? " · served by " + esc(st.model) : ""}`;
+  else if (st.type === "tool") what = `tool ${esc(st.name)} → ${st.facts} facts`;
+  else if (st.type === "draft") what = `draft verdict ${esc(st.verdict).toUpperCase()} with ${st.claims} claims`;
+  else if (st.type === "removed") what = `REMOVED (${esc(st.by)}): <s>${esc(st.claim)}</s> — ${esc(st.reason)}`;
+  else if (st.type === "field_corrected") what = `corrected ${esc(st.field)}: ${esc(st.from)} → ${esc(st.to)} — ${esc(st.reason)}`;
+  else if (st.type === "done") what = `kept ${st.kept} claims, removed ${st.removed}`;
+  else what = esc(st.msg || st.type);
+  return `<div class="py-0.5"><span class="text-slate-500">+${(st.t_ms / 1000).toFixed(1)}s</span> <span class="${color} font-semibold">${esc(st.agent)}</span> ${what}</div>`;
+}
+
+function resultHtml(o) {
+  const chip = k => `<span class="border rounded px-2 py-0.5 text-xs"><span class="text-slate-500">${k}</span> <b>${esc(o[k])}</b></span>`;
+  const fields = ["active_trials_bin", "highest_phase", "recent_termination", "ot_association", "genetic_support", "antibody_tractable"].map(chip).join(" ");
+  const claims = o.claims.map(c => `<div class="border-l-4 ${SEVERITY[c.severity] || ""} pl-3 py-1">
+      <div>${esc(c.text)}</div>
+      <div class="flex flex-wrap gap-1 mt-1">${c.citations.map(x => `<span class="bg-slate-100 rounded px-1.5 text-xs font-mono">${esc(x.fact)} = ${esc(x.value)}</span>`).join("")}</div></div>`).join("");
+  const removed = o.removed_claims.map(c => `<div class="text-xs text-slate-500 py-0.5"><s>${esc(c.text)}</s> — <i>${esc(c.removed_by)}: ${esc(c.reason)}</i></div>`).join("");
+  return `
+    <div class="flex flex-wrap items-center gap-2 mb-2">${pill(o.verdict)} <span class="font-semibold">${esc(o.headline)}</span> ${o.snapshot.simulated ? SIM : ""}</div>
+    <div class="flex flex-wrap gap-1 mb-3">${fields}</div>
+    ${o.verdict_change ? `<div class="mb-3 p-2 rounded bg-indigo-50 text-indigo-900"><b>What changed:</b> ${esc(o.verdict_change)}</div>` : ""}
+    <div class="space-y-2">${claims}</div>
+    ${removed ? `<div class="mt-3"><div class="text-xs font-semibold text-rose-700">Removed by the Skeptic (${o.claims_removed})</div>${removed}</div>` : ""}
+    ${o.precedents && o.precedents !== "none" ? `<div class="mt-3 text-xs"><b>Applied from your past decisions:</b> ${esc(o.precedents)}</div>` : ""}
+    <div class="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">
+      <button onclick="decide('advance')" class="bg-emerald-600 text-white rounded px-3 py-1">Advance</button>
+      <button onclick="decide('kill')" class="bg-rose-600 text-white rounded px-3 py-1">Kill</button>
+      ${["safety", "crowded", "weak genetics"].map(r => `<label class="border rounded-full px-2 py-0.5 cursor-pointer"><input type="checkbox" class="reason" value="${r}"> ${r}</label>`).join("")}
+      <input id="note" placeholder="note (optional)" class="border rounded px-2 py-1 flex-1 min-w-[10rem]">
+      <span id="decidemsg" class="text-xs"></span>
+    </div>`;
+}
+
+async function showRun(id, wasRunning = false) {
+  clearTimeout(timer);
+  currentRun = id;
+  const r = await api(`/api/runs/${id}`);
+  if (currentRun !== id || !$("#run")) return;
+  const head = `${r.kind === "whats_changed" ? "What changed" : "Agent run"} #${r.id} · <span class="${r.status === "error" ? "text-rose-600" : ""}">${esc(r.status)}</span>`
+    + (r.latency_ms ? ` · ${(r.latency_ms / 1000).toFixed(1)} s` : "") + ` · ${r.input_tokens} in / ${r.output_tokens} out tokens`
+    + (r.claims_removed != null ? ` · ${r.claims_removed} claim(s) removed` : "");
+  const log = `<div class="font-mono text-xs bg-slate-950 text-slate-100 rounded p-3 max-h-72 overflow-y-auto">${r.steps.map(stepHtml).join("") || "starting…"}${r.status === "running" ? `<div class="animate-pulse">…</div>` : ""}</div>`;
+  $("#run").innerHTML = card(head, log + (r.error ? `<div class="mt-2 text-rose-600">${esc(r.error)}</div>` : "") + (r.output ? `<div class="mt-4">${resultHtml(r.output)}</div>` : ""));
+  if (r.status === "running") { timer = setTimeout(() => showRun(id, true), 1000); return; }
+  if (wasRunning) {
+    await loadTargets();
+    if (r.kind === "whats_changed") await renderDetail();
+  }
+}
+
+async function decide(decision) {
+  const reasons = [...document.querySelectorAll(".reason:checked")].map(x => x.value);
+  try {
+    await api(`/api/targets/${current}/decisions`, {method: "POST", body: JSON.stringify({decision, reasons, note: $("#note").value || null, run_id: currentRun})});
+    await renderDetail();
+  } catch (err) { $("#decidemsg").className = "text-xs text-rose-600"; $("#decidemsg").textContent = err.message; }
+}
+
+loadHealth().catch(e => { $("#health").textContent = e.message; });
+loadTargets().catch(() => {});
+</script>
 </body>
 </html>
