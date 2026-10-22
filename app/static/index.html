@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TargetWatch</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <main class="max-w-xl mx-auto p-8">
+    <h1 class="text-3xl font-semibold">TargetWatch</h1>
+    <p class="mt-2 text-slate-600">Hello from Aiven Runtime.</p>
+    <p class="mt-6 text-sm">Database: <span id="db" class="font-mono">checking…</span></p>
+  </main>
+  <script>
+    fetch("/api/health").then(r => r.json()).then(h => {
+      document.getElementById("db").textContent = h.database;
+    }).catch(e => { document.getElementById("db").textContent = "error: " + e; });
+  </script>
+</body>
+</html>
