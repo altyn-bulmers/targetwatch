@@ -1,0 +1,1035 @@
+{
+ "fetched_on": "2026-10-22",
+ "pairs": {
+  "CLDN18|gastric cancer": {
+   "ensembl_id": "ENSG00000066405",
+   "disease": {
+    "id": "MONDO_0001056",
+    "name": "gastric cancer"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.5645105103342419,
+   "datatypes": {
+    "literature": 0.9102670169196306,
+    "clinical": 0.8830635736198219
+   },
+   "ab_buckets": [
+    "Advanced Clinical",
+    "UniProt loc med conf",
+    "UniProt SigP or TMHMM",
+    "GO CC med conf"
+   ],
+   "drugs": [
+    "ZOLBETUXIMAB"
+   ],
+   "trials_matched": 69,
+   "active": 45,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT07829757",
+   "halted_365d": []
+  },
+  "ERBB2|breast cancer": {
+   "ensembl_id": "ENSG00000141736",
+   "disease": {
+    "id": "MONDO_0007254",
+    "name": "breast cancer"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.8322372160178141,
+   "datatypes": {
+    "clinical": 0.9955905233093966,
+    "affected_pathway": 0.8678361603226922,
+    "literature": 0.999882228182053,
+    "genetic_association": 0,
+    "somatic_mutation": 0.8291500734685089
+   },
+   "ab_buckets": [
+    "Approved Drug",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt SigP or TMHMM",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "AC-480",
+    "AEE-788",
+    "AFATINIB",
+    "AFATINIB DIMALEATE",
+    "ALLITINIB",
+    "ANVATABART OPADOTIN",
+    "AV-412",
+    "BMS-690514",
+    "CANERTINIB",
+    "CANERTINIB DIHYDROCHLORIDE",
+    "CP-724714",
+    "CUDC-101",
+    "DACOMITINIB",
+    "DACOMITINIB ANHYDROUS",
+    "DISITAMAB VEDOTIN",
+    "ERTUMAXOMAB",
+    "GANCOTAMAB",
+    "HEMAY-022",
+    "JNJ-26483327",
+    "KBP5209",
+    "KN-026",
+    "LAPATINIB",
+    "LAPATINIB DITOSYLATE",
+    "MARGETUXIMAB",
+    "MASOPROCOL",
+    "MM-111",
+    "MUBRITINIB",
+    "NERATINIB",
+    "NERATINIB MALEATE",
+    "PERTUZUMAB",
+    "POZIOTINIB",
+    "PYROTINIB",
+    "S-222611",
+    "SAPITINIB",
+    "TAK-285",
+    "TARLOXOTINIB",
+    "TESEVATINIB",
+    "TRASTUZUMAB",
+    "TRASTUZUMAB BOTIDOTIN",
+    "TRASTUZUMAB DERUXTECAN",
+    "TRASTUZUMAB DUOCARMAZINE",
+    "TRASTUZUMAB EMTANSINE",
+    "TUCATINIB",
+    "TUXOBERTINIB",
+    "VANDETANIB",
+    "VARLITINIB",
+    "ZANIDATAMAB",
+    "ZENOCUTUZUMAB"
+   ],
+   "trials_matched": 3166,
+   "active": 1169,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT01597999",
+   "halted_365d": [
+    {
+     "nct": "NCT07570966",
+     "status": "WITHDRAWN",
+     "stopped": "2026-06-22",
+     "why": "Business decision"
+    },
+    {
+     "nct": "NCT06595563",
+     "status": "TERMINATED",
+     "stopped": "2026-07-23",
+     "why": "Study logistics or limited study population, as defined by the iclusion/exclusion criteria, leading to a poor recruitment"
+    },
+    {
+     "nct": "NCT05634954",
+     "status": "WITHDRAWN",
+     "stopped": "2025-10-23",
+     "why": "Business Decision"
+    },
+    {
+     "nct": "NCT05063786",
+     "status": "TERMINATED",
+     "stopped": "2025-12-23",
+     "why": "Study prematurely terminated due to recruitment challenges, low incidence of the target population, evolving treatment landscape, ethical considerations, and inability to ensure funding through study "
+    },
+    {
+     "nct": "NCT06568692",
+     "status": "TERMINATED",
+     "stopped": "2026-07-29",
+     "why": "Business Reason"
+    },
+    {
+     "nct": "NCT01785420",
+     "status": "TERMINATED",
+     "stopped": "2026-09-11",
+     "why": "Low rate of recruitment and no financial support"
+    },
+    {
+     "nct": "NCT05747794",
+     "status": "TERMINATED",
+     "stopped": "2026-06-30",
+     "why": "Sponsor Decision"
+    },
+    {
+     "nct": "NCT06851442",
+     "status": "TERMINATED",
+     "stopped": "2025-11-20",
+     "why": "This study was closed due to business reasons. Closure was not prompted by any safety or efficacy concerns."
+    },
+    {
+     "nct": "NCT04789096",
+     "status": "TERMINATED",
+     "stopped": "2026-06-04",
+     "why": "Stopped on the recommendation of the BCT Independent Data and Monitoring Committee"
+    },
+    {
+     "nct": "NCT06351332",
+     "status": "TERMINATED",
+     "stopped": "2026-02-24",
+     "why": "Zentalis terminated contract due to concern for toxicity safety from previously reported serious adverse events. This study had been designed as a Phase I / Phase II study, but never reached Phase II."
+    },
+    {
+     "nct": "NCT05488145",
+     "status": "TERMINATED",
+     "stopped": "2025-12-10",
+     "why": "Insufficient Staff"
+    },
+    {
+     "nct": "NCT05183828",
+     "status": "TERMINATED",
+     "stopped": "2026-05-13",
+     "why": "Study ended earlier than anticipated due to end of funding."
+    },
+    {
+     "nct": "NCT06844669",
+     "status": "TERMINATED",
+     "stopped": "2026-05-07",
+     "why": "Futility"
+    },
+    {
+     "nct": "NCT06585969",
+     "status": "WITHDRAWN",
+     "stopped": "2026-01-01",
+     "why": "Lack of funding"
+    },
+    {
+     "nct": "NCT04273555",
+     "status": "WITHDRAWN",
+     "stopped": "2026-07-01",
+     "why": "Unable to recruit for this study."
+    },
+    {
+     "nct": "NCT06625515",
+     "status": "TERMINATED",
+     "stopped": "2026-01-09",
+     "why": "The study was terminated by sponsor based on the adverse event profile."
+    },
+    {
+     "nct": "NCT03746431",
+     "status": "TERMINATED",
+     "stopped": "2025-12-03",
+     "why": "A strategic decision was made to discontinue the study and prioritize other programs within the portfolio. The study was not discontinued due to safety issues or adverse events related to FPI-1434, FP"
+    },
+    {
+     "nct": "NCT05625087",
+     "status": "TERMINATED",
+     "stopped": "2026-01-20",
+     "why": "poor accrual"
+    },
+    {
+     "nct": "NCT07150767",
+     "status": "WITHDRAWN",
+     "stopped": "2025-12-02",
+     "why": "The applicant voluntarily withdrew the case"
+    },
+    {
+     "nct": "NCT06229392",
+     "status": "WITHDRAWN",
+     "stopped": "2026-03-11",
+     "why": "Internal operational issues prevented the study site from opening to enrollment."
+    },
+    {
+     "nct": "NCT07408089",
+     "status": "TERMINATED",
+     "stopped": "2026-07-28",
+     "why": "The study was terminated primarily due to a business decision related to a corporate transaction and was not driven by any safety signal."
+    },
+    {
+     "nct": "NCT06714617",
+     "status": "TERMINATED",
+     "stopped": "2026-01-30",
+     "why": "The decision is based only on the Sponsor's internal portfolio prioritization and resource management considerations and is not due to the investigational product's toxicity considerations."
+    },
+    {
+     "nct": "NCT07214662",
+     "status": "TERMINATED",
+     "stopped": "2026-06-24",
+     "why": "The trial was terminated due to sponsor decision."
+    },
+    {
+     "nct": "NCT05514717",
+     "status": "TERMINATED",
+     "stopped": "2026-05-22",
+     "why": "Development discontinued."
+    },
+    {
+     "nct": "NCT05664893",
+     "status": "WITHDRAWN",
+     "stopped": "2026-03-26",
+     "why": "Sponsor decision due to recruitment default"
+    },
+    {
+     "nct": "NCT06038539",
+     "status": "TERMINATED",
+     "stopped": "2025-12-23",
+     "why": "US FDA is streamlining the Biosimilar development. Thus, Biocon decided to terminate the study."
+    },
+    {
+     "nct": "NCT05207709",
+     "status": "TERMINATED",
+     "stopped": "2026-03-26",
+     "why": "The study was prematurely halted because enrollment was significantly delayed compared with the original projections due to the evolving therapeutic landscape."
+    },
+    {
+     "nct": "NCT06878248",
+     "status": "TERMINATED",
+     "stopped": "2026-04-09",
+     "why": "Business Decision"
+    },
+    {
+     "nct": "NCT07136493",
+     "status": "WITHDRAWN",
+     "stopped": "2026-06-16",
+     "why": "Funding This study has been closed at City of Hope at the request of the Sponsor due to delays and changes in study timeline."
+    },
+    {
+     "nct": "NCT05553522",
+     "status": "TERMINATED",
+     "stopped": "2025-12-17",
+     "why": "Slow enrollment"
+    },
+    {
+     "nct": "NCT03879629",
+     "status": "TERMINATED",
+     "stopped": "2026-02-28",
+     "why": "slow accrual; insufficient funding to continue to accrue"
+    },
+    {
+     "nct": "NCT05335473",
+     "status": "TERMINATED",
+     "stopped": "2026-09-01",
+     "why": "The anticipated efficacy was not achieved; the primary objective of Stage 1 in the Simon-2 design was not met."
+    }
+   ]
+  },
+  "EGFR|NSCLC": {
+   "ensembl_id": "ENSG00000146648",
+   "disease": {
+    "id": "MONDO_0005233",
+    "name": "non-small cell lung carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.8883707400322897,
+   "datatypes": {
+    "clinical": 0.9960369589002778,
+    "genetic_literature": 0.607930797611621,
+    "affected_pathway": 0.8255278297988587,
+    "literature": 0.9997003738109889,
+    "genetic_association": 0.9338352605404265,
+    "somatic_mutation": 0.9311298240142721,
+    "animal_model": 0.24998114397789856
+   },
+   "ab_buckets": [
+    "Approved Drug",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt loc med conf",
+    "UniProt SigP or TMHMM",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "ABIVERTINIB",
+    "ABIVERTINIB MALEATE",
+    "AC-480",
+    "AEE-788",
+    "AFATINIB",
+    "AFATINIB DIMALEATE",
+    "ALLITINIB",
+    "AMIVANTAMAB",
+    "AUMOLERTINIB",
+    "AV-412",
+    "AZD-3759",
+    "AZD-4769",
+    "BAFISONTAMAB",
+    "BMS-690514",
+    "BRIGATINIB",
+    "CANERTINIB",
+    "CANERTINIB DIHYDROCHLORIDE",
+    "CEP-32496",
+    "CETUXIMAB",
+    "CETUXIMAB SAROTALOCAN",
+    "CLN-081",
+    "CUDC-101",
+    "DACOMITINIB",
+    "DACOMITINIB ANHYDROUS",
+    "DEPATUXIZUMAB",
+    "DEPATUXIZUMAB MAFODOTIN",
+    "DULIGOTUZUMAB",
+    "EPITINIB",
+    "ERLOTINIB",
+    "ERLOTINIB HYDROCHLORIDE",
+    "FALNIDAMOL",
+    "FIRMONERTINIB",
+    "FUTUXIMAB",
+    "GC1118",
+    "GEFITINIB",
+    "ICOTINIB",
+    "IMGATUZUMAB",
+    "JNJ-26483327",
+    "KBP5209",
+    "LAPATINIB",
+    "LAPATINIB DITOSYLATE",
+    "LAZERTINIB",
+    "LAZERTINIB MESYLATE",
+    "LOSATUXIZUMAB VEDOTIN",
+    "MAB-425",
+    "MATUZUMAB",
+    "MAVELERTINIB",
+    "MDX-447",
+    "MOBOCERTINIB",
+    "MOBOCERTINIB SUCCINATE",
+    "MODOTUXIMAB",
+    "NAQUOTINIB",
+    "NAZARTINIB",
+    "NECITUMUMAB",
+    "NERATINIB",
+    "NERATINIB MALEATE",
+    "NIMOTUZUMAB",
+    "OLMUTINIB",
+    "OSIMERTINIB",
+    "OSIMERTINIB MESYLATE",
+    "PANITUMUMAB",
+    "PELITINIB",
+    "PF-06459988",
+    "PIMURUTAMAB",
+    "PKI-166",
+    "POZIOTINIB",
+    "PYROTINIB",
+    "RINDOPEPIMUT",
+    "ROCILETINIB",
+    "RUSERONTINIB",
+    "S-222611",
+    "SAPITINIB",
+    "SIMOTINIB",
+    "TAK-285",
+    "TARLOXOTINIB",
+    "TESEVATINIB",
+    "THELIATINIB",
+    "TOMUZOTUXIMAB",
+    "TUXOBERTINIB",
+    "VANDETANIB",
+    "VARLITINIB",
+    "ZALUTUMUMAB"
+   ],
+   "trials_matched": 1867,
+   "active": 557,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT02695290",
+   "halted_365d": [
+    {
+     "nct": "NCT03737994",
+     "status": "TERMINATED",
+     "stopped": "2026-03-17",
+     "why": "Inadequate accrual rate"
+    },
+    {
+     "nct": "NCT06585488",
+     "status": "TERMINATED",
+     "stopped": "2026-04-23",
+     "why": "The Sponsor has made the decision to terminate this study due to the lack of promising efficacy, internal prioritization, and highly competitive landscape."
+    },
+    {
+     "nct": "NCT06186076",
+     "status": "TERMINATED",
+     "stopped": "2025-12-03",
+     "why": "Sponsor's decision"
+    },
+    {
+     "nct": "NCT07500987",
+     "status": "TERMINATED",
+     "stopped": "2026-05-13",
+     "why": "Early termination was due to insufficient tumor uptake thought to be limited by the binding affinity of EGFR, The termination is not related to any safety or quality concerns."
+    },
+    {
+     "nct": "NCT05578092",
+     "status": "TERMINATED",
+     "stopped": "2026-02-03",
+     "why": "business objectives have changed"
+    },
+    {
+     "nct": "NCT06943664",
+     "status": "WITHDRAWN",
+     "stopped": "2026-09-15",
+     "why": "Lack of funding"
+    },
+    {
+     "nct": "NCT03066206",
+     "status": "TERMINATED",
+     "stopped": "2026-02-16",
+     "why": "\\<75% participation"
+    },
+    {
+     "nct": "NCT05358249",
+     "status": "TERMINATED",
+     "stopped": "2026-09-28",
+     "why": "Business reasons and not based on any safety concerns."
+    },
+    {
+     "nct": "NCT06599502",
+     "status": "TERMINATED",
+     "stopped": "2026-01-29",
+     "why": "The decision to cease enrolment and proceed with the early termination of the ALAFOSS 01 (D7080C00001) study was based on strategic company portfolio prioritization."
+    },
+    {
+     "nct": "NCT03645928",
+     "status": "TERMINATED",
+     "stopped": "2026-02-20",
+     "why": "After reviewing the available safety and efficacy data to date, Iovance concluded that the study reached the required number of events for evaluation of study endpoints."
+    },
+    {
+     "nct": "NCT06685718",
+     "status": "TERMINATED",
+     "stopped": "2026-04-21",
+     "why": "Evaluation on business strategy, not involving safety issue."
+    },
+    {
+     "nct": "NCT06704724",
+     "status": "TERMINATED",
+     "stopped": "2026-05-12",
+     "why": "The trial was terminated for strategic business reasons; the decision was not based on any safety and/or efficacy concerns."
+    }
+   ]
+  },
+  "KRAS|NSCLC": {
+   "ensembl_id": "ENSG00000133703",
+   "disease": {
+    "id": "MONDO_0005233",
+    "name": "non-small cell lung carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.8337881598550857,
+   "datatypes": {
+    "clinical": 0.9461536829416707,
+    "affected_pathway": 0.8392538873860665,
+    "literature": 0.997527330053297,
+    "somatic_mutation": 0.9232932373281268,
+    "animal_model": 0.2952719883999644
+   },
+   "ab_buckets": [
+    "UniProt loc high conf",
+    "GO CC high conf"
+   ],
+   "drugs": [
+    "ADAGRASIB",
+    "SALIRASIB",
+    "SOTORASIB"
+   ],
+   "trials_matched": 275,
+   "active": 153,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT06314763",
+   "halted_365d": [
+    {
+     "nct": "NCT06364696",
+     "status": "TERMINATED",
+     "stopped": "2026-06-17",
+     "why": "Company's strategic decision"
+    },
+    {
+     "nct": "NCT04892017",
+     "status": "TERMINATED",
+     "stopped": "2026-03-30",
+     "why": "Trial terminated due to business decision, not based on any safety or efficacy concerns."
+    },
+    {
+     "nct": "NCT06585488",
+     "status": "TERMINATED",
+     "stopped": "2026-04-23",
+     "why": "The Sponsor has made the decision to terminate this study due to the lack of promising efficacy, internal prioritization, and highly competitive landscape."
+    },
+    {
+     "nct": "NCT05578092",
+     "status": "TERMINATED",
+     "stopped": "2026-02-03",
+     "why": "business objectives have changed"
+    },
+    {
+     "nct": "NCT06333678",
+     "status": "TERMINATED",
+     "stopped": "2026-01-27",
+     "why": "Study closed by Amgen due to lack of enrollment"
+    },
+    {
+     "nct": "NCT05358249",
+     "status": "TERMINATED",
+     "stopped": "2026-09-28",
+     "why": "Business reasons and not based on any safety concerns."
+    },
+    {
+     "nct": "NCT06704724",
+     "status": "TERMINATED",
+     "stopped": "2026-05-12",
+     "why": "The trial was terminated for strategic business reasons; the decision was not based on any safety and/or efficacy concerns."
+    }
+   ]
+  },
+  "BRAF|melanoma": {
+   "ensembl_id": "ENSG00000157764",
+   "disease": {
+    "id": "MONDO_0005105",
+    "name": "melanoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.853319758325584,
+   "datatypes": {
+    "clinical": 0.982134595427167,
+    "affected_pathway": 0.8703952337696489,
+    "literature": 0.998450697455317,
+    "genetic_association": 0.6991204172533643,
+    "somatic_mutation": 0.8799594223495624
+   },
+   "ab_buckets": [
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "ARQ-736",
+    "BELVARAFENIB",
+    "CEP-32496",
+    "DABRAFENIB",
+    "DABRAFENIB MESYLATE",
+    "ENCORAFENIB",
+    "LIFIRAFENIB",
+    "LY-3009120",
+    "NAPORAFENIB",
+    "PLIXORAFENIB",
+    "RAF-265",
+    "REGORAFENIB",
+    "RG-7256",
+    "SORAFENIB",
+    "SORAFENIB TOSYLATE",
+    "TOVORAFENIB",
+    "VEMURAFENIB",
+    "XL-281"
+   ],
+   "trials_matched": 327,
+   "active": 57,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT07092410",
+   "halted_365d": [
+    {
+     "nct": "NCT07092410",
+     "status": "WITHDRAWN",
+     "stopped": "2026-04-21",
+     "why": "The study was terminated early due to insufficient patient recruitment."
+    },
+    {
+     "nct": "NCT06287463",
+     "status": "TERMINATED",
+     "stopped": "2026-02-13",
+     "why": "Trial terminated due to a business decision, not based on any safety concerns."
+    },
+    {
+     "nct": "NCT05926960",
+     "status": "TERMINATED",
+     "stopped": "2026-02-02",
+     "why": "Study terminated due to inability to recruit the target number of patients. There were no safety and/or efficacy concerns involved in the decision to stop enrollment."
+    },
+    {
+     "nct": "NCT03645928",
+     "status": "TERMINATED",
+     "stopped": "2026-02-20",
+     "why": "After reviewing the available safety and efficacy data to date, Iovance concluded that the study reached the required number of events for evaluation of study endpoints."
+    }
+   ]
+  },
+  "TACSTD2|breast cancer": {
+   "ensembl_id": "ENSG00000184292",
+   "disease": {
+    "id": "MONDO_0007254",
+    "name": "breast cancer"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.6148172641776616,
+   "datatypes": {
+    "literature": 0.9806013502373836,
+    "clinical": 0.9622976470785009
+   },
+   "ab_buckets": [
+    "UniProt SigP or TMHMM",
+    "GO CC med conf",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "DATOPOTAMAB DERUXTECAN",
+    "SACITUZUMAB GOVITECAN"
+   ],
+   "trials_matched": 128,
+   "active": 107,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT07357597",
+   "halted_365d": [
+    {
+     "nct": "NCT07134556",
+     "status": "WITHDRAWN",
+     "stopped": "2026-05-01",
+     "why": "The interim analysis of the STAR-221 study showed that the domvanalimab combination did not improve overall survival compared to standard of care.\n\nNo new relevant safety concerns were identified."
+    }
+   ]
+  },
+  "IDO1|melanoma": {
+   "ensembl_id": "ENSG00000131203",
+   "disease": {
+    "id": "MONDO_0005105",
+    "name": "melanoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.3911204098296387,
+   "datatypes": {
+    "literature": 0.9456756361193566,
+    "genetic_association": 0,
+    "clinical": 0.5960795933779087
+   },
+   "ab_buckets": [],
+   "drugs": [
+    "EPACADOSTAT",
+    "LINRODOSTAT"
+   ],
+   "trials_matched": 18,
+   "active": 2,
+   "highest_phase": "PHASE3",
+   "highest_phase_nct": "NCT03329846",
+   "halted_365d": []
+  },
+  "TIGIT|NSCLC": {
+   "ensembl_id": "ENSG00000181847",
+   "disease": {
+    "id": "MONDO_0005233",
+    "name": "non-small cell lung carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.4335639368801151,
+   "datatypes": {
+    "literature": 0.757660506282913,
+    "clinical": 0.6752967289991061
+   },
+   "ab_buckets": [
+    "Advanced Clinical",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt SigP or TMHMM"
+   ],
+   "drugs": [
+    "ASP-8374",
+    "DOMVANALIMAB",
+    "ETIGILIMAB",
+    "IBI-939",
+    "OCIPERLIMAB",
+    "TIRAGOLUMAB",
+    "VIBOSTOLIMAB"
+   ],
+   "trials_matched": 48,
+   "active": 20,
+   "highest_phase": "PHASE3",
+   "highest_phase_nct": "NCT05298423",
+   "halted_365d": [
+    {
+     "nct": "NCT05746481",
+     "status": "TERMINATED",
+     "stopped": "2025-11-08",
+     "why": "Decision by agent provider"
+    },
+    {
+     "nct": "NCT06267001",
+     "status": "TERMINATED",
+     "stopped": "2025-12-16",
+     "why": "Decision to terminate study was driven by results from preceding tiragolumab study (SKYSCRAPER-06;NCT04619797) \\& sponsor's strategic priorities, not due to safety risks or quality reasons for any of "
+    },
+    {
+     "nct": "NCT04738487",
+     "status": "TERMINATED",
+     "stopped": "2026-01-27",
+     "why": "Business Reasons"
+    },
+    {
+     "nct": "NCT03337698",
+     "status": "TERMINATED",
+     "stopped": "2025-11-25",
+     "why": "Study was closed early as the sponsor decided not to continue development of certain treatment combinations."
+    },
+    {
+     "nct": "NCT05226598",
+     "status": "TERMINATED",
+     "stopped": "2026-01-09",
+     "why": "MK-7684A-007 was terminated early due to futility. A non-submission CSR, not intended to support any registration, was issued; therefore, an abbreviated CSR was generated."
+    },
+    {
+     "nct": "NCT04746924",
+     "status": "TERMINATED",
+     "stopped": "2026-03-18",
+     "why": "This decision was conducted by the sponsor based on lack of efficacy and not driven by safety concerns."
+    }
+   ]
+  },
+  "CD47|AML": {
+   "ensembl_id": "ENSG00000196776",
+   "disease": {
+    "id": "MONDO_0018874",
+    "name": "acute myeloid leukemia"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.35345471698662007,
+   "datatypes": {
+    "literature": 0.9291203786728043,
+    "animal_model": 0.6195455399245524,
+    "genetic_association": 0,
+    "clinical": 0.521182472931368
+   },
+   "ab_buckets": [
+    "Advanced Clinical",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt SigP or TMHMM",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "EVORPACEPT",
+    "MAGROLIMAB"
+   ],
+   "trials_matched": 15,
+   "active": 2,
+   "highest_phase": "PHASE3",
+   "highest_phase_nct": "NCT04778397",
+   "halted_365d": []
+  },
+  "FGFR2|cholangiocarcinoma": {
+   "ensembl_id": "ENSG00000066468",
+   "disease": {
+    "id": "MONDO_0019087",
+    "name": "cholangiocarcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.6650703042966041,
+   "datatypes": {
+    "literature": 0.9678964284601332,
+    "affected_pathway": 0.607930797611621,
+    "somatic_mutation": 0.3650145619940773,
+    "clinical": 0.9568638706619049
+   },
+   "ab_buckets": [
+    "Advanced Clinical",
+    "GO CC high conf",
+    "UniProt loc med conf",
+    "UniProt SigP or TMHMM"
+   ],
+   "drugs": [
+    "APRUTUMAB IXADOTIN",
+    "BEMARITUZUMAB",
+    "BRIVANIB",
+    "BRIVANIB ALANINATE",
+    "DERAZANTINIB",
+    "E-7090",
+    "ENMD-981693",
+    "ERDAFITINIB",
+    "FEXAGRATINIB",
+    "FGFR INHIBITOR DEBIO 1347",
+    "FUTIBATINIB",
+    "HMPL-453",
+    "INFIGRATINIB",
+    "INFIGRATINIB PHOSPHATE",
+    "LUCITANIB",
+    "LY-2874455",
+    "NINTEDANIB",
+    "NINTEDANIB ESYLATE",
+    "ORANTINIB",
+    "PALIFERMIN",
+    "PEMIGATINIB",
+    "REGORAFENIB",
+    "RG-1530",
+    "ROGARATINIB",
+    "TG100-801",
+    "TRAFERMIN",
+    "XL-999"
+   ],
+   "trials_matched": 49,
+   "active": 20,
+   "highest_phase": "PHASE3",
+   "highest_phase_nct": "NCT04093362",
+   "halted_365d": [
+    {
+     "nct": "NCT05325866",
+     "status": "TERMINATED",
+     "stopped": "2026-01-28",
+     "why": "Sponsor Decision"
+    }
+   ]
+  },
+  "NECTIN4|urothelial carcinoma": {
+   "ensembl_id": "ENSG00000143217",
+   "disease": {
+    "id": "MONDO_0040679",
+    "name": "urothelial carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.5237595462747836,
+   "datatypes": {
+    "literature": 0.5408760257714436,
+    "clinical": 0.8345008816465229
+   },
+   "ab_buckets": [
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt SigP or TMHMM",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "ENFORTUMAB VEDOTIN"
+   ],
+   "trials_matched": 60,
+   "active": 52,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT06764095",
+   "halted_365d": [
+    {
+     "nct": "NCT03288545",
+     "status": "TERMINATED",
+     "stopped": "2026-02-20",
+     "why": "Sponsor stopped the study after meeting enrollment targets and primary objectives, and after collecting sufficient data for planned regulatory filings. The decision was not due to safety concerns, fut"
+    },
+    {
+     "nct": "NCT03869190",
+     "status": "TERMINATED",
+     "stopped": "2025-12-22",
+     "why": "Study was closed early as the sponsor decided not to continue development of certain treatment combinations."
+    }
+   ]
+  },
+  "DLL3|small cell lung cancer": {
+   "ensembl_id": "ENSG00000090932",
+   "disease": {
+    "id": "MONDO_0008433",
+    "name": "small cell lung carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.5930627345148322,
+   "datatypes": {
+    "literature": 0.9757545667685791,
+    "rna_expression": 0.09475983936966464,
+    "clinical": 0.9246496626372865
+   },
+   "ab_buckets": [
+    "UniProt SigP or TMHMM",
+    "GO CC med conf",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "ROVALPITUZUMAB TESIRINE",
+    "TARLATAMAB"
+   ],
+   "trials_matched": 68,
+   "active": 53,
+   "highest_phase": "PHASE3",
+   "highest_phase_nct": "NCT07637513",
+   "halted_365d": [
+    {
+     "nct": "NCT07328490",
+     "status": "WITHDRAWN",
+     "stopped": "2026-04-25",
+     "why": "Study drug supplier withdrew support; no participants were enrolled."
+    }
+   ]
+  },
+  "LAG3|melanoma": {
+   "ensembl_id": "ENSG00000089692",
+   "disease": {
+    "id": "MONDO_0005105",
+    "name": "melanoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.5834109594343942,
+   "datatypes": {
+    "literature": 0.8895505997235974,
+    "genetic_association": 0,
+    "clinical": 0.9151891980796495
+   },
+   "ab_buckets": [
+    "Approved Drug",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt loc med conf",
+    "UniProt SigP or TMHMM"
+   ],
+   "drugs": [
+    "EFTILAGIMOD ALFA",
+    "FAVEZELIMAB",
+    "FIANLIMAB",
+    "IERAMILIMAB",
+    "RELATLIMAB",
+    "TEBOTELIMAB"
+   ],
+   "trials_matched": 63,
+   "active": 39,
+   "highest_phase": "PHASE4",
+   "highest_phase_nct": "NCT07459543",
+   "halted_365d": [
+    {
+     "nct": "NCT03645928",
+     "status": "TERMINATED",
+     "stopped": "2026-02-20",
+     "why": "After reviewing the available safety and efficacy data to date, Iovance concluded that the study reached the required number of events for evaluation of study endpoints."
+    }
+   ]
+  },
+  "GPC3|hepatocellular carcinoma": {
+   "ensembl_id": "ENSG00000147257",
+   "disease": {
+    "id": "MONDO_0007256",
+    "name": "hepatocellular carcinoma"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.3680213648661682,
+   "datatypes": {
+    "literature": 0.9965312936349746,
+    "rna_expression": 0.36166333443516946,
+    "somatic_mutation": 0.5319394479101685,
+    "clinical": 0.1717235633586826
+   },
+   "ab_buckets": [
+    "Advanced Clinical",
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt loc med conf",
+    "UniProt SigP or TMHMM",
+    "Human Protein Atlas loc"
+   ],
+   "drugs": [
+    "CODRITUZUMAB"
+   ],
+   "trials_matched": 70,
+   "active": 42,
+   "highest_phase": "PHASE2",
+   "highest_phase_nct": "NCT04864054",
+   "halted_365d": []
+  },
+  "CDH17|colorectal cancer": {
+   "ensembl_id": "ENSG00000079112",
+   "disease": {
+    "id": "MONDO_0005575",
+    "name": "colorectal cancer"
+   },
+   "ot_release": "26.09",
+   "ot_score": 0.29374659892629984,
+   "datatypes": {
+    "literature": 0.8876604606797576,
+    "genetic_association": 0,
+    "somatic_mutation": 0.43880782710938815
+   },
+   "ab_buckets": [
+    "UniProt loc high conf",
+    "GO CC high conf",
+    "UniProt SigP or TMHMM"
+   ],
+   "drugs": [],
+   "trials_matched": 10,
+   "active": 6,
+   "highest_phase": "PHASE2",
+   "highest_phase_nct": "NCT06055439",
+   "halted_365d": [
+    {
+     "nct": "NCT07152210",
+     "status": "WITHDRAWN",
+     "stopped": "2026-03-02",
+     "why": "Due to corporate strategic adjustment."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,4664 @@
+{
+ "run_at": "2026-10-22T13:24:55+00:00",
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "endpoint": "https://api.anthropic.com",
+ "targetwatch": "/home/az/Projects/40_accel_hackathon/app/agents.py",
+ "truth_fetched_on": "2026-10-22",
+ "summary": {
+  "pairs": 15,
+  "scored": 15,
+  "targetwatch": {
+   "fields": {
+    "active_trials_bin": 13,
+    "highest_phase": 14,
+    "recent_termination": 12,
+    "ot_association": 15,
+    "genetic_support": 15,
+    "antibody_tractable": 15
+   },
+   "per_pair": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.8333333333333334,
+    0.8333333333333334,
+    0.8333333333333334,
+    0.8333333333333334,
+    1.0,
+    1.0,
+    1.0,
+    0.8333333333333334,
+    0.8333333333333334
+   ],
+   "overall": 0.9333333333333333,
+   "latency_s": 26.148000000000003,
+   "cost_usd": 0.20831733333333335,
+   "status": {
+    "ok": 15
+   },
+   "ci": [
+    0.888888888888889,
+    0.9777777777777777
+   ]
+  },
+  "baseline": {
+   "fields": {
+    "active_trials_bin": 13,
+    "highest_phase": 11,
+    "recent_termination": 13,
+    "ot_association": 15,
+    "genetic_support": 12,
+    "antibody_tractable": 15
+   },
+   "per_pair": [
+    0.5,
+    1.0,
+    1.0,
+    0.8333333333333334,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.8333333333333334,
+    1.0,
+    0.8333333333333334,
+    0.6666666666666666,
+    0.5
+   ],
+   "overall": 0.8777777777777778,
+   "latency_s": 7.798,
+   "cost_usd": 0.013341866666666667,
+   "status": {
+    "ok": 15
+   },
+   "ci": [
+    0.7777777777777778,
+    0.9555555555555556
+   ]
+  },
+  "majority": {
+   "active_trials_bin": 0.6666666666666666,
+   "highest_phase": 0.5333333333333333,
+   "recent_termination": 0.7333333333333333,
+   "ot_association": 0.6666666666666666,
+   "genetic_support": 0.5333333333333333,
+   "antibody_tractable": 0.9333333333333333,
+   "overall": 0.6777777777777777
+  },
+  "difference_ci": [
+   -0.033333333333333326,
+   0.15555555555555556
+  ],
+  "difference": 0.05555555555555558
+ },
+ "notes": [
+  "TargetWatch cost = its input/output tokens at claude-opus-5-5 prices (the app uses no prompt caching)."
+ ],
+ "rows": [
+  {
+   "system": "targetwatch",
+   "target": "CLDN18",
+   "indication": "gastric cancer",
+   "status": "ok",
+   "output": {
+    "target": "CLDN18",
+    "indication": "gastric cancer",
+    "disease_id": "MONDO_0001056",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "n",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "CLDN18 in gastric cancer is clinically validated: zolbetuximab is approved and the antibody tractability is solid. But the field is crowded, with 21 active trials and big-pharma ADCs already in Phase 3, and the target has no genetic evidence. Keep tracking for differentiated next-generation assets rather than doing broad diligence now.",
+    "claims": [
+     {
+      "text": "There is no genetic support. The genetic association, genetic literature and somatic mutation scores are all 0, so the overall association of 0.5645 comes from clinical and literature evidence.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.9103"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.5645"
+       }
+      ]
+     },
+     {
+      "text": "CLDN18 is well suited to antibody-type drugs (antibodies, ADCs) and has no recorded safety liabilities. It is not essential to cancer cells in DepMap, which fits the approach of using it as a surface marker to target tumours rather than as a growth driver.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "4"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.027"
+       }
+      ]
+     },
+     {
+      "text": "Momentum is high and there are no setbacks. 12 trials were updated in the last 90 days and none were halted in the past year.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ct.updated_90d",
+        "value": "12"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "0"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Clinical validation is strong. An approved antibody, zolbetuximab, already targets CLDN18, the Open Targets clinical evidence score is high, and trials have reached Phase 4.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.8831"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Naming the approved drug as zolbetuximab relies on outside knowledge. The evidence shows only an APPROVAL stage, with no drug name."
+     },
+     {
+      "text": "The space is crowded. There are 21 active trials across 20 sponsors, including 5 Phase 3 studies, one of them AstraZeneca's sonesitatug vedotin ADC (NCT07431281), so a new entrant would need clear differentiation.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "21"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "20"
+       },
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "5"
+       },
+       {
+        "fact": "trial.NCT07431281",
+        "value": "PHASE3|RECRUITING|2026-10-16"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Attributing NCT07431281 to AstraZeneca and calling it a sonesitatug vedotin ADC relies on outside knowledge. The evidence gives only the phase, status and date for that trial."
+     }
+    ],
+    "claims_removed": 2,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 26823,
+    "input_tokens": 13868,
+    "output_tokens": 1812,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 6613,
+      "input_tokens": 2576,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 42,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 11275,
+      "input_tokens": 7673,
+      "output_tokens": 1212,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 8923,
+      "input_tokens": 3619,
+      "output_tokens": 492,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical validation is strong. An approved antibody, zolbetuximab, already targets CLDN18, the Open Targets clinical evidence score is high, and trials have reached Phase 4.",
+      "reason": "Naming the approved drug as zolbetuximab relies on outside knowledge. The evidence shows only an APPROVAL stage, with no drug name."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The space is crowded. There are 21 active trials across 20 sponsors, including 5 Phase 3 studies, one of them AstraZeneca's sonesitatug vedotin ADC (NCT07431281), so a new entrant would need clear differentiation.",
+      "reason": "Attributing NCT07431281 to AstraZeneca and calling it a sonesitatug vedotin ADC relies on outside knowledge. The evidence gives only the phase, status and date for that trial."
+     },
+     {
+      "agent": "skeptic",
+      "type": "field_corrected",
+      "field": "genetic_support",
+      "from": "y",
+      "to": "n",
+      "reason": "genetic_association, genetic_literature and somatic_mutation are all 0.0, so the value should be n."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 3,
+      "removed": 2
+     }
+    ]
+   },
+   "latency_s": 27.59,
+   "usage": {
+    "input_tokens": 13868,
+    "output_tokens": 1812
+   },
+   "cost_usd": 0.091712,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "n",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "ERBB2",
+   "indication": "breast cancer",
+   "status": "ok",
+   "output": {
+    "target": "ERBB2",
+    "indication": "breast cancer",
+    "disease_id": "MONDO_0007254",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "ERBB2 in breast cancer is a proven, approved target, but the field is saturated. The open question is which individual assets stand out, not whether the target works. Keep watching rather than starting target-level diligence.",
+    "claims": [
+     {
+      "text": "Clinical validation is as strong as it gets. Drugs against ERBB2 have reached approval in this indication, and the Open Targets clinical evidence score is 0.9956, giving an overall association of 0.8322.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9956"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.8322"
+       }
+      ]
+     },
+     {
+      "text": "The genetic support comes from somatic mutation evidence (0.8292), not germline: the germline genetic association score is 0, meaning no evidence of that type. That fits a tumour driver that is amplified in a subset of cancers.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.8292"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "The space is extremely crowded: 48 drugs act on the target, there are 1455 active trials, 896 sponsors and 53 Phase 4 studies. The trial search also catches HER2-negative studies by keyword, so the trial counts overstate how crowded it is, but the conclusion stands. A new entrant would need a clearly differentiated drug type or patient group.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.drugs.count",
+        "value": "48"
+       },
+       {
+        "fact": "ct.active",
+        "value": "1455"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "896"
+       },
+       {
+        "fact": "ct.phase.PHASE4",
+        "value": "53"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Claim that the trial search catches HER2-negative studies by keyword is outside knowledge and is not supported by any fact in the evidence."
+     },
+     {
+      "text": "Open Targets lists 3 safety liabilities, including cardiotoxicity, a known effect of this drug class. There were 83 trials halted in the past year, but the ones shown mostly stopped for slow enrolment or business reasons rather than safety.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.safety.count",
+        "value": "3"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "83"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Cardiotoxicity and the reasons the halted trials stopped (slow enrolment or business) are not in the evidence; this is outside knowledge."
+     },
+     {
+      "text": "The target can be drugged by every modality checked. Small molecule (5) and antibody (5) both include approved drugs, and protein degrader (4) also scores. Knocking the gene out is not lethal to cells across DepMap (0 = not essential; median effect in breast lines -0.282), consistent with it mattering only in HER2-driven tumours.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.SM",
+        "value": "5"
+       },
+       {
+        "fact": "ot.tract.AB",
+        "value": "5"
+       },
+       {
+        "fact": "ot.tract.PR",
+        "value": "4"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.282"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The claim that approved drugs exist for each modality, and the HER2-driven interpretation, are not supported by the tractability facts cited."
+     }
+    ],
+    "claims_removed": 3,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 33203,
+    "input_tokens": 218488,
+    "output_tokens": 1775,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 3274,
+      "input_tokens": 2588,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 3014,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 19694,
+      "input_tokens": 112266,
+      "output_tokens": 1476,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 10220,
+      "input_tokens": 103634,
+      "output_tokens": 191,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The space is extremely crowded: 48 drugs act on the target, there are 1455 active trials, 896 sponsors and 53 Phase 4 studies. The trial search also catches HER2-negative studies by keyword, so the trial counts overstate how crowded it is, but the conclusion stands. A new entrant would need a clearly differentiated drug type or patient group.",
+      "reason": "Claim that the trial search catches HER2-negative studies by keyword is outside knowledge and is not supported by any fact in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Open Targets lists 3 safety liabilities, including cardiotoxicity, a known effect of this drug class. There were 83 trials halted in the past year, but the ones shown mostly stopped for slow enrolment or business reasons rather than safety.",
+      "reason": "Cardiotoxicity and the reasons the halted trials stopped (slow enrolment or business) are not in the evidence; this is outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The target can be drugged by every modality checked. Small molecule (5) and antibody (5) both include approved drugs, and protein degrader (4) also scores. Knocking the gene out is not lethal to cells across DepMap (0 = not essential; median effect in breast lines -0.282), consistent with it mattering only in HER2-driven tumours.",
+      "reason": "The claim that approved drugs exist for each modality, and the HER2-driven interpretation, are not supported by the tractability facts cited."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 2,
+      "removed": 3
+     }
+    ]
+   },
+   "latency_s": 36.24,
+   "usage": {
+    "input_tokens": 218488,
+    "output_tokens": 1775
+   },
+   "cost_usd": 0.909452,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "EGFR",
+   "indication": "NSCLC",
+   "status": "ok",
+   "output": {
+    "target": "EGFR",
+    "indication": "non-small cell lung carcinoma",
+    "disease_id": "MONDO_0005233",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "EGFR in NSCLC is a fully validated target with approved drugs, but the field is so crowded that the target alone is not a reason to start diligence; only a clearly differentiated asset would justify that.",
+    "claims": [
+     {
+      "text": "Human genetic evidence is strong. Open Targets gives EGFR a genetic association score of 0.9338 and a somatic mutation score of 0.9311 in NSCLC, and an overall association of 0.8884.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.9338"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.9311"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.8884"
+       }
+      ]
+     },
+     {
+      "text": "The target is clinically proven in this indication. Drugs have reached approval for NSCLC itself, there are 82 drugs against EGFR in total, and both small-molecule and antibody routes are tractable.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.drugs.count",
+        "value": "82"
+       },
+       {
+        "fact": "ot.tract.SM",
+        "value": "5"
+       },
+       {
+        "fact": "ot.tract.AB",
+        "value": "6"
+       }
+      ]
+     },
+     {
+      "text": "Competition is extreme. There are 640 active trials, 623 sponsors and 840 industry trials, and trials reach PHASE4, so any new asset is up against approved standards of care.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "640"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "623"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "840"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "27 trials were halted in the last 365 days. Most of the listed stop reasons are business-related, slow accrual or lack of funding rather than safety, which points to a field that is churning rather than to a problem with the target.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "27"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Stop reasons (business, accrual, funding vs safety) are not in the evidence; the interpretation is unsupported beyond the count of 27."
+     },
+     {
+      "text": "Open Targets lists 21 safety liabilities, including liver, skin, gut and heart events. EGFR is not essential in DepMap, with a median effect of -0.175 across 402 indication-relevant cell lines, which suggests sensitivity depends on the tumour having an EGFR mutation.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.safety.count",
+        "value": "21"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.175"
+       },
+       {
+        "fact": "depmap.indication_lines",
+        "value": "402"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The specific liability types (liver, skin, gut, heart) and the claim that sensitivity depends on EGFR mutation status are not in the evidence; they rely on outside knowledge."
+     }
+    ],
+    "claims_removed": 2,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 25226,
+    "input_tokens": 144318,
+    "output_tokens": 1559,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 4183,
+      "input_tokens": 2585,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 1922,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 15349,
+      "input_tokens": 75579,
+      "output_tokens": 1302,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 5681,
+      "input_tokens": 66154,
+      "output_tokens": 149,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "27 trials were halted in the last 365 days. Most of the listed stop reasons are business-related, slow accrual or lack of funding rather than safety, which points to a field that is churning rather than to a problem with the target.",
+      "reason": "Stop reasons (business, accrual, funding vs safety) are not in the evidence; the interpretation is unsupported beyond the count of 27."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Open Targets lists 21 safety liabilities, including liver, skin, gut and heart events. EGFR is not essential in DepMap, with a median effect of -0.175 across 402 indication-relevant cell lines, which suggests sensitivity depends on the tumour having an EGFR mutation.",
+      "reason": "The specific liability types (liver, skin, gut, heart) and the claim that sensitivity depends on EGFR mutation status are not in the evidence; they rely on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 3,
+      "removed": 2
+     }
+    ]
+   },
+   "latency_s": 27.36,
+   "usage": {
+    "input_tokens": 144318,
+    "output_tokens": 1559
+   },
+   "cost_usd": 0.608452,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "KRAS",
+   "indication": "NSCLC",
+   "status": "ok",
+   "output": {
+    "target": "KRAS",
+    "indication": "non-small cell lung carcinoma",
+    "disease_id": "MONDO_0005233",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "KRAS in NSCLC is a proven target with approved drugs, but the field is very crowded and many programmes have been dropped for business reasons. Keep tracking and only open diligence for a clearly differentiated asset.",
+    "claims": [
+     {
+      "text": "Open Targets gives KRAS a strong overall association with NSCLC, and the genetic signal comes from somatic mutations. There is no germline genetic association evidence, which is expected for a driver oncogene.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.8338"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.9233"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "The target is clinically validated. Approved small-molecule KRAS inhibitors exist (sotorasib and adagrasib), and the highest trial phase reached is Phase 4.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.drugs.count",
+        "value": "3"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9462"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Drug names sotorasib and adagrasib and the 'small-molecule' classification come from outside knowledge; the evidence gives only an approved stage and a drug count."
+     },
+     {
+      "text": "Competition is extreme: 194 active trials from 216 sponsors, including 56 at Phase 3. A new entrant would need a clear advantage, such as targeting a different mutant (G12D) or acting across all KRAS mutants, rather than another G12C inhibitor.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "194"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "216"
+       },
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "56"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The G12D, pan-mutant and G12C differentiation advice relies on outside knowledge not present in the evidence."
+     },
+     {
+      "text": "15 trials stopped in the last 365 days. Most cite business or portfolio reasons, but one KRAS-relevant study, a first-line sotorasib Phase 2, ended for futility (the trial list also includes a broad Phase 3 checkpoint-inhibitor trial stopped for futility). This points to pruning in a crowded field rather than safety problems.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "15"
+       },
+       {
+        "fact": "trial.NCT04933695",
+        "value": "PHASE2|TERMINATED|2026-07-13"
+       },
+       {
+        "fact": "trial.NCT06585488",
+        "value": "PHASE1|TERMINATED|2026-07-08"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Termination reasons (business/portfolio, futility, first-line sotorasib, checkpoint-inhibitor Phase 3) are not in the evidence; the trial entries give only phase, status and date."
+     },
+     {
+      "text": "Small molecules can clearly reach the target and no safety liabilities are recorded. KRAS is also broadly essential in DepMap cell lines, including the NSCLC lines, which supports it as a cancer dependency.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.SM",
+        "value": "3"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "1"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.484"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The claim that KRAS is essential 'including the NSCLC lines' is overstated, and 'clearly reach' goes beyond the evidence; the indication median effect of -0.484 is above the -0.5 level."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 26723,
+    "input_tokens": 44363,
+    "output_tokens": 1651,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 7042,
+      "input_tokens": 2589,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 439,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 14152,
+      "input_tokens": 24779,
+      "output_tokens": 1250,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 5515,
+      "input_tokens": 16995,
+      "output_tokens": 293,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The target is clinically validated. Approved small-molecule KRAS inhibitors exist (sotorasib and adagrasib), and the highest trial phase reached is Phase 4.",
+      "reason": "Drug names sotorasib and adagrasib and the 'small-molecule' classification come from outside knowledge; the evidence gives only an approved stage and a drug count."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Competition is extreme: 194 active trials from 216 sponsors, including 56 at Phase 3. A new entrant would need a clear advantage, such as targeting a different mutant (G12D) or acting across all KRAS mutants, rather than another G12C inhibitor.",
+      "reason": "The G12D, pan-mutant and G12C differentiation advice relies on outside knowledge not present in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "15 trials stopped in the last 365 days. Most cite business or portfolio reasons, but one KRAS-relevant study, a first-line sotorasib Phase 2, ended for futility (the trial list also includes a broad Phase 3 checkpoint-inhibitor trial stopped for futility). This points to pruning in a crowded field rather than safety problems.",
+      "reason": "Termination reasons (business/portfolio, futility, first-line sotorasib, checkpoint-inhibitor Phase 3) are not in the evidence; the trial entries give only phase, status and date."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Small molecules can clearly reach the target and no safety liabilities are recorded. KRAS is also broadly essential in DepMap cell lines, including the NSCLC lines, which supports it as a cancer dependency.",
+      "reason": "The claim that KRAS is essential 'including the NSCLC lines' is overstated, and 'clearly reach' goes beyond the evidence; the indication median effect of -0.484 is above the -0.5 level."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 27.79,
+   "usage": {
+    "input_tokens": 44363,
+    "output_tokens": 1651
+   },
+   "cost_usd": 0.210472,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "BRAF",
+   "indication": "melanoma",
+   "status": "ok",
+   "output": {
+    "target": "BRAF",
+    "indication": "melanoma",
+    "disease_id": "MONDO_0005105",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "BRAF in melanoma is a proven target with approved drugs, but the field is crowded and several next-gen RAF programs were recently stopped for business reasons. Only a clearly differentiated asset would justify active diligence.",
+    "claims": [
+     {
+      "text": "Genetic support is strong. The somatic mutation score is 0.88 and the genetic association score is 0.6991, giving an overall Open Targets association of 0.8533.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.88"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.6991"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.8533"
+       }
+      ]
+     },
+     {
+      "text": "The target is clinically validated: drugs have reached approval in this indication, trials run up to PHASE4, and the clinical evidence score is 0.9821. Melanoma cell lines depend on BRAF (median effect -1.084), while across all lines the median effect is only -0.091.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9821"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-1.084"
+       },
+       {
+        "fact": "depmap.median_effect",
+        "value": "-0.091"
+       }
+      ]
+     },
+     {
+      "text": "The space is very crowded: 18 drugs act on the target, there are 71 active trials, 178 sponsors and 163 industry trials. A new asset would compete with approved standards of care.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.drugs.count",
+        "value": "18"
+       },
+       {
+        "fact": "ct.active",
+        "value": "71"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "178"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "163"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "8 trials were halted in the past 365 days. Several were next-gen RAF/MAPK programs (Pfizer PF-07284890, Day One tovorafenib in melanoma, Ikena IK-595, Deciphera DCC-3084) stopped for business reasons rather than safety, which suggests weak appetite for follow-on assets.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "8"
+       },
+       {
+        "fact": "trial.NCT04543188",
+        "value": "PHASE1|TERMINATED|2025-10-23"
+       },
+       {
+        "fact": "trial.NCT04985604",
+        "value": "PHASE2|TERMINATED|2025-10-02"
+       },
+       {
+        "fact": "trial.NCT06270082",
+        "value": "PHASE1|TERMINATED|2025-09-19"
+       },
+       {
+        "fact": "trial.NCT06287463",
+        "value": "PHASE1|TERMINATED|2026-03-05"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The sponsor and drug names (Pfizer PF-07284890, tovorafenib, IK-595, DCC-3084) and the 'business reasons rather than safety' termination rationale are not in the evidence. The evidence lists only phase, status and date for these trials, so the claim relies on outside knowledge."
+     },
+     {
+      "text": "Small-molecule tractability is high (5 buckets). One safety liability, heart disease, is flagged, which is manageable given the approved drugs already on the market.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.tract.SM",
+        "value": "5"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "1"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence gives only a safety liability count of 1 and does not say what it is. Naming it 'heart disease' and calling it manageable relies on outside knowledge."
+     }
+    ],
+    "claims_removed": 2,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 22145,
+    "input_tokens": 42301,
+    "output_tokens": 1887,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2165,
+      "input_tokens": 2587,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 401,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 13388,
+      "input_tokens": 24230,
+      "output_tokens": 1390,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 6580,
+      "input_tokens": 15484,
+      "output_tokens": 389,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "8 trials were halted in the past 365 days. Several were next-gen RAF/MAPK programs (Pfizer PF-07284890, Day One tovorafenib in melanoma, Ikena IK-595, Deciphera DCC-3084) stopped for business reasons rather than safety, which suggests weak appetite for follow-on assets.",
+      "reason": "The sponsor and drug names (Pfizer PF-07284890, tovorafenib, IK-595, DCC-3084) and the 'business reasons rather than safety' termination rationale are not in the evidence. The evidence lists only phase, status and date for these trials, so the claim relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Small-molecule tractability is high (5 buckets). One safety liability, heart disease, is flagged, which is manageable given the approved drugs already on the market.",
+      "reason": "The evidence gives only a safety liability count of 1 and does not say what it is. Naming it 'heart disease' and calling it manageable relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 3,
+      "removed": 2
+     }
+    ]
+   },
+   "latency_s": 22.99,
+   "usage": {
+    "input_tokens": 42301,
+    "output_tokens": 1887
+   },
+   "cost_usd": 0.206944,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "TACSTD2",
+   "indication": "breast cancer",
+   "status": "ok",
+   "output": {
+    "target": "TACSTD2",
+    "indication": "breast cancer",
+    "disease_id": "MONDO_0007254",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "TROP2 is clinically proven in breast cancer, with two antibody-drug conjugates (ADCs) at approval stage. But there is no genetic support and the field is very crowded with 126 active trials, so only a clearly differentiated asset would justify active diligence.",
+    "claims": [],
+    "removed_claims": [
+     {
+      "text": "Open Targets shows strong clinical validation: the overall association is 0.6148, and the clinical datatype score is 0.9623. Two TROP2-binding ADCs, datopotamab deruxtecan and sacituzumab govitecan, have reached approval stage for this indication.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.6148"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9623"
+       },
+       {
+        "fact": "ot.drugs.count",
+        "value": "2"
+       },
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The drug names (datopotamab deruxtecan, sacituzumab govitecan) and their TROP2-binding ADC mechanism come from outside knowledge. The evidence only gives a drug count of 2 and a maximum stage of APPROVAL."
+     },
+     {
+      "text": "The space is very crowded. There are 126 active trials across 81 sponsors, the highest phase is PHASE4, and there are 20 Phase 3 trials. Next-generation TROP2 ADCs from large pharma, such as Merck's sacituzumab tirumotecan, are also in Phase 3, which leaves little room for a new entrant.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "126"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "81"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       },
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "20"
+       },
+       {
+        "fact": "trial.NCT06841354",
+        "value": "PHASE3|RECRUITING|2026-10-13"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Naming Merck's sacituzumab tirumotecan as a large-pharma next-generation ADC is outside knowledge. The trial fact cited only gives phase, status and date."
+     },
+     {
+      "text": "There is no genetic support: the genetic association, genetic literature and somatic mutation scores are all 0. The association rests entirely on clinical and literature evidence. That fits a surface antigen used as an ADC delivery handle rather than a disease driver.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.genetic_literature",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.9806"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Calling TROP2 a surface antigen used as an ADC delivery handle rather than a disease driver is outside knowledge. The association also includes a direct score, so saying it rests entirely on clinical and literature evidence goes beyond what the facts show."
+     },
+     {
+      "text": "The target is well suited to antibodies: it has 3 antibody tractability buckets, 0 small-molecule buckets, and 0 safety liabilities listed in Open Targets. It is not essential in DepMap (median effect -0.093 across breast lines), consistent with its role as an ADC delivery handle.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "3"
+       },
+       {
+        "fact": "ot.tract.SM",
+        "value": "0"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.099"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The claim says the median effect is -0.093 across breast lines, but -0.093 is the all-lines median. The breast (indication) median is -0.099, so the text misstates its cited fact. The ADC delivery handle framing is also outside knowledge."
+     },
+     {
+      "text": "There were 3 trial halts in the past 365 days, mostly combination studies stopped for sponsor or futility reasons, such as the trial withdrawn after the STAR-221 domvanalimab readout. None of the stops listed safety reasons, and activity remains high, with 33 trials updated in the last 90 days.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "3"
+       },
+       {
+        "fact": "trial.NCT07134556",
+        "value": "PHASE2|WITHDRAWN|2026-05-01"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "33"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The reasons for the stops (sponsor or futility), the STAR-221 domvanalimab link and the statement that none were for safety reasons are not in the evidence."
+     }
+    ],
+    "claims_removed": 5,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 23833,
+    "input_tokens": 25733,
+    "output_tokens": 1987,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2473,
+      "input_tokens": 2585,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 167,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 13664,
+      "input_tokens": 14899,
+      "output_tokens": 1446,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 7683,
+      "input_tokens": 8249,
+      "output_tokens": 433,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Open Targets shows strong clinical validation: the overall association is 0.6148, and the clinical datatype score is 0.9623. Two TROP2-binding ADCs, datopotamab deruxtecan and sacituzumab govitecan, have reached approval stage for this indication.",
+      "reason": "The drug names (datopotamab deruxtecan, sacituzumab govitecan) and their TROP2-binding ADC mechanism come from outside knowledge. The evidence only gives a drug count of 2 and a maximum stage of APPROVAL."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The space is very crowded. There are 126 active trials across 81 sponsors, the highest phase is PHASE4, and there are 20 Phase 3 trials. Next-generation TROP2 ADCs from large pharma, such as Merck's sacituzumab tirumotecan, are also in Phase 3, which leaves little room for a new entrant.",
+      "reason": "Naming Merck's sacituzumab tirumotecan as a large-pharma next-generation ADC is outside knowledge. The trial fact cited only gives phase, status and date."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "There is no genetic support: the genetic association, genetic literature and somatic mutation scores are all 0. The association rests entirely on clinical and literature evidence. That fits a surface antigen used as an ADC delivery handle rather than a disease driver.",
+      "reason": "Calling TROP2 a surface antigen used as an ADC delivery handle rather than a disease driver is outside knowledge. The association also includes a direct score, so saying it rests entirely on clinical and literature evidence goes beyond what the facts show."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The target is well suited to antibodies: it has 3 antibody tractability buckets, 0 small-molecule buckets, and 0 safety liabilities listed in Open Targets. It is not essential in DepMap (median effect -0.093 across breast lines), consistent with its role as an ADC delivery handle.",
+      "reason": "The claim says the median effect is -0.093 across breast lines, but -0.093 is the all-lines median. The breast (indication) median is -0.099, so the text misstates its cited fact. The ADC delivery handle framing is also outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "There were 3 trial halts in the past 365 days, mostly combination studies stopped for sponsor or futility reasons, such as the trial withdrawn after the STAR-221 domvanalimab readout. None of the stops listed safety reasons, and activity remains high, with 33 trials updated in the last 90 days.",
+      "reason": "The reasons for the stops (sponsor or futility), the STAR-221 domvanalimab link and the statement that none were for safety reasons are not in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 0,
+      "removed": 5
+     }
+    ]
+   },
+   "latency_s": 24.65,
+   "usage": {
+    "input_tokens": 25733,
+    "output_tokens": 1987
+   },
+   "cost_usd": 0.142672,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "IDO1",
+   "indication": "melanoma",
+   "status": "ok",
+   "output": {
+    "target": "IDO1",
+    "indication": "melanoma",
+    "disease_id": "MONDO_0005105",
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "n",
+    "verdict": "kill",
+    "headline": "IDO1 in melanoma: two Phase 3 trials are completed, but the rest of the programme has been wound down with repeated terminations, and there is no genetic support. Stop spending time on it.",
+    "claims": [
+     {
+      "text": "Genetic evidence is absent: the genetic association, genetic literature and somatic mutation scores are all 0. The moderate overall association comes from literature and clinical evidence.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0"
+       },
+       {
+        "fact": "ot.assoc.genetic_literature",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.3911"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.9457"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.5961"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Clinical validation looks negative. Both Phase 3 trials are completed, but 5 trials were halted, and the sponsor gave reasons such as 'emerging data with epacadostat and pembrolizumab' or 'analysis of data from a sister study'. One trial was halted in the last year, and none were updated in the last 90 days.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "2"
+       },
+       {
+        "fact": "trial.NCT02752074",
+        "value": "PHASE3|COMPLETED|2025-08-24"
+       },
+       {
+        "fact": "ct.halted",
+        "value": "5"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "1"
+       },
+       {
+        "fact": "trial.NCT01604889",
+        "value": "PHASE2|TERMINATED|2026-04-21"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "0"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The quoted termination reasons ('emerging data with epacadostat and pembrolizumab', 'analysis of data from a sister study') do not appear anywhere in the evidence."
+     },
+     {
+      "text": "Momentum has collapsed. Of 12 melanoma trials, only 1 is still active: a Phase 2 vaccine combination (IO102-IO103) that is recruiting, not a small-molecule IDO1 inhibitor.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.total",
+        "value": "12"
+       },
+       {
+        "fact": "ct.active",
+        "value": "1"
+       },
+       {
+        "fact": "trial.NCT05280314",
+        "value": "PHASE2|RECRUITING|2024-03-18"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence gives NCT05280314 only as PHASE2|RECRUITING. Describing it as an IO102-IO103 vaccine combination rather than a small-molecule IDO1 inhibitor relies on outside knowledge."
+     },
+     {
+      "text": "Small-molecule tractability is high (5 small-molecule buckets, including Advanced Clinical), but there are no antibody buckets. Open Targets records epacadostat's max stage as APPROVAL, which needs checking because its max stage in this indication is only PHASE_3.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.tract.SM",
+        "value": "5"
+       },
+       {
+        "fact": "ot.tract.AB",
+        "value": "0"
+       },
+       {
+        "fact": "ot.drugs.max_stage",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "PHASE_3"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The drug is named as epacadostat, which is not in the evidence. The evidence also gives no bucket breakdown such as 'Advanced Clinical'."
+     },
+     {
+      "text": "IDO1 is not essential in DepMap, including in melanoma cell lines, which is expected for an immune-modulating target. Open Targets lists 1 safety liability (moderate or severe depression).",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "0.079"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "1"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The safety liability is described as moderate or severe depression, which is not in the evidence. The evidence only gives a safety count of 1."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 23417,
+    "input_tokens": 13590,
+    "output_tokens": 1783,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2508,
+      "input_tokens": 2584,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 26,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 13265,
+      "input_tokens": 7771,
+      "output_tokens": 1383,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "kill",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 7631,
+      "input_tokens": 3235,
+      "output_tokens": 292,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical validation looks negative. Both Phase 3 trials are completed, but 5 trials were halted, and the sponsor gave reasons such as 'emerging data with epacadostat and pembrolizumab' or 'analysis of data from a sister study'. One trial was halted in the last year, and none were updated in the last 90 days.",
+      "reason": "The quoted termination reasons ('emerging data with epacadostat and pembrolizumab', 'analysis of data from a sister study') do not appear anywhere in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Momentum has collapsed. Of 12 melanoma trials, only 1 is still active: a Phase 2 vaccine combination (IO102-IO103) that is recruiting, not a small-molecule IDO1 inhibitor.",
+      "reason": "The evidence gives NCT05280314 only as PHASE2|RECRUITING. Describing it as an IO102-IO103 vaccine combination rather than a small-molecule IDO1 inhibitor relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Small-molecule tractability is high (5 small-molecule buckets, including Advanced Clinical), but there are no antibody buckets. Open Targets records epacadostat's max stage as APPROVAL, which needs checking because its max stage in this indication is only PHASE_3.",
+      "reason": "The drug is named as epacadostat, which is not in the evidence. The evidence also gives no bucket breakdown such as 'Advanced Clinical'."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "IDO1 is not essential in DepMap, including in melanoma cell lines, which is expected for an immune-modulating target. Open Targets lists 1 safety liability (moderate or severe depression).",
+      "reason": "The safety liability is described as moderate or severe depression, which is not in the evidence. The evidence only gives a safety count of 1."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 24.04,
+   "usage": {
+    "input_tokens": 13590,
+    "output_tokens": 1783
+   },
+   "cost_usd": 0.09002,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "n"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": false,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "TIGIT",
+   "indication": "NSCLC",
+   "status": "ok",
+   "output": {
+    "target": "TIGIT",
+    "indication": "non-small cell lung carcinoma",
+    "disease_id": "MONDO_0005233",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "kill",
+    "headline": "TIGIT in NSCLC: several Phase 3 trials were stopped for futility or lack of efficacy, there is no genetic support and the field is crowded, so we recommend stopping work on it.",
+    "claims": [
+     {
+      "text": "There is no human genetic evidence linking TIGIT to NSCLC: the genetic association, genetic literature and somatic mutation scores are all 0. The moderate overall association of 0.4336 comes from clinical (0.6753) and literature (0.7577) evidence, which mostly reflects how many trials have been run, not whether the biology is validated.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.genetic_literature",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.4336"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.6753"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.7577"
+       }
+      ]
+     },
+     {
+      "text": "As expected for an immune-cell checkpoint, TIGIT is not essential to tumour cells in DepMap (median effect -0.077 across 395 indication-matched lines). Any benefit has to come through the immune system, and the trials have struggled to show that.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.077"
+       },
+       {
+        "fact": "depmap.indication_lines",
+        "value": "395"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "The clinical evidence is going the wrong way. 8 trials were halted in the last 365 days. Merck's KEYVIBE-007 vibostolimab Phase 3 was stopped early for futility, BeiGene's ociperlimab Phase 3 was stopped for lack of efficacy, and Roche ended its adjuvant tiragolumab Phase 3 because of results from SKYSCRAPER-06.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "8"
+       },
+       {
+        "fact": "trial.NCT05226598",
+        "value": "PHASE3|TERMINATED|2026-09-11"
+       },
+       {
+        "fact": "trial.NCT04746924",
+        "value": "PHASE3|TERMINATED|2026-05-12"
+       },
+       {
+        "fact": "trial.NCT06267001",
+        "value": "PHASE3|TERMINATED|2026-06-10"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Sponsor names, trial names (KEYVIBE-007, SKYSCRAPER-06) and termination reasons (futility, lack of efficacy) are not in the evidence; they rely on outside knowledge."
+     },
+     {
+      "text": "The space is very crowded: 7 drugs target TIGIT, with Phase 3 the furthest any has reached, and there are 25 sponsors across 51 trials. AstraZeneca's rilvegostomig Phase 3s are still recruiting, so a new entrant would be up against big-pharma programmes that already have readouts on the way.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.drugs.count",
+        "value": "7"
+       },
+       {
+        "fact": "ot.drugs.max_stage",
+        "value": "PHASE_3"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "25"
+       },
+       {
+        "fact": "ct.total",
+        "value": "51"
+       },
+       {
+        "fact": "trial.NCT06868277",
+        "value": "PHASE3|RECRUITING|2026-09-25"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The claim that AstraZeneca's rilvegostomig Phase 3s are recruiting relies on outside knowledge; the evidence has no sponsor or drug names."
+     },
+     {
+      "text": "Antibodies are a well-proven way to hit this target (4 antibody tractability buckets, including Advanced Clinical), and Open Targets lists 0 safety liabilities. So feasibility and safety are not the problem; efficacy is.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "4"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The 'Advanced Clinical' tractability bucket is not in the evidence; only the count ot.tract.AB=4 is given."
+     }
+    ],
+    "claims_removed": 3,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 22206,
+    "input_tokens": 19577,
+    "output_tokens": 2068,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 1953,
+      "input_tokens": 2596,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 65,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 13446,
+      "input_tokens": 12292,
+      "output_tokens": 1494,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "kill",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 6795,
+      "input_tokens": 4689,
+      "output_tokens": 466,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The clinical evidence is going the wrong way. 8 trials were halted in the last 365 days. Merck's KEYVIBE-007 vibostolimab Phase 3 was stopped early for futility, BeiGene's ociperlimab Phase 3 was stopped for lack of efficacy, and Roche ended its adjuvant tiragolumab Phase 3 because of results from SKYSCRAPER-06.",
+      "reason": "Sponsor names, trial names (KEYVIBE-007, SKYSCRAPER-06) and termination reasons (futility, lack of efficacy) are not in the evidence; they rely on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The space is very crowded: 7 drugs target TIGIT, with Phase 3 the furthest any has reached, and there are 25 sponsors across 51 trials. AstraZeneca's rilvegostomig Phase 3s are still recruiting, so a new entrant would be up against big-pharma programmes that already have readouts on the way.",
+      "reason": "The claim that AstraZeneca's rilvegostomig Phase 3s are recruiting relies on outside knowledge; the evidence has no sponsor or drug names."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Antibodies are a well-proven way to hit this target (4 antibody tractability buckets, including Advanced Clinical), and Open Targets lists 0 safety liabilities. So feasibility and safety are not the problem; efficacy is.",
+      "reason": "The 'Advanced Clinical' tractability bucket is not in the evidence; only the count ot.tract.AB=4 is given."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 2,
+      "removed": 3
+     }
+    ]
+   },
+   "latency_s": 22.87,
+   "usage": {
+    "input_tokens": 19577,
+    "output_tokens": 2068
+   },
+   "cost_usd": 0.119668,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": false,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "CD47",
+   "indication": "AML",
+   "status": "ok",
+   "output": {
+    "target": "CD47",
+    "indication": "acute myeloid leukemia",
+    "disease_id": "MONDO_0018874",
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "kill",
+    "headline": "CD47 in AML: drop it. Both Phase 3 magrolimab trials were stopped for futility, there is no genetic support, and only a few trials are still active.",
+    "claims": [
+     {
+      "text": "There is no genetic support. Genetic association, genetic literature and somatic mutation scores are all 0. The moderate overall association of 0.3535 comes from literature (0.9291) and animal model (0.6195) evidence.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0"
+       },
+       {
+        "fact": "ot.assoc.genetic_literature",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.3535"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.9291"
+       },
+       {
+        "fact": "ot.assoc.animal_model",
+        "value": "0.6195"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Clinical validation has failed. Gilead stopped both Phase 3 magrolimab trials in AML, one with venetoclax and azacitidine (NCT05079230) and one in TP53-mutant disease (NCT04778397), for futility.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "trial.NCT05079230",
+        "value": "PHASE3|TERMINATED|2025-04-04"
+       },
+       {
+        "fact": "trial.NCT04778397",
+        "value": "PHASE3|TERMINATED|2025-02-05"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE3"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The sponsor (Gilead), the futility rationale, the drug combinations and the TP53-mutant population are not in the evidence. The evidence only shows the trials as PHASE3 and TERMINATED."
+     },
+     {
+      "text": "Momentum has collapsed. Of 18 trials, 11 are halted, 2 of them in the past year, and only 3 are active. No trial has been updated in the last 90 days. One of the active trials, NCT04214249, is a pembrolizumab study that probably only matched the search terms.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.total",
+        "value": "18"
+       },
+       {
+        "fact": "ct.halted",
+        "value": "11"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "2"
+       },
+       {
+        "fact": "ct.active",
+        "value": "3"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "0"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Calling NCT04214249 a pembrolizumab study that only matched the search terms relies on outside knowledge. The evidence only gives its phase, status and date."
+     },
+     {
+      "text": "CD47 is not essential for AML cell growth (DepMap median effect 0.061 across 57 AML lines). That fits its role as a 'don't eat me' signal to immune cells rather than a dependency of the tumour itself.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "0.061"
+       },
+       {
+        "fact": "depmap.indication_lines",
+        "value": "57"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The 'don't eat me' immune-signalling explanation is outside knowledge and is not supported by the cited DepMap facts."
+     },
+     {
+      "text": "The target is highly antibody-tractable (5 antibody tractability buckets) and Open Targets lists no safety liabilities. But tractability was never the problem: drugs reached Phase 3 and still failed on efficacy, and one investigator-led Phase 2 (NCT05829434) was withdrawn, reportedly for safety reasons.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "5"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "trial.NCT05829434",
+        "value": "PHASE2|WITHDRAWN|2024-02-12"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence does not say NCT05829434 was investigator-led or withdrawn for safety reasons. It only shows PHASE2|WITHDRAWN|2024-02-12."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 22921,
+    "input_tokens": 15831,
+    "output_tokens": 1967,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 3503,
+      "input_tokens": 2576,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 32,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 12034,
+      "input_tokens": 9823,
+      "output_tokens": 1310,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "kill",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 7369,
+      "input_tokens": 3432,
+      "output_tokens": 549,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical validation has failed. Gilead stopped both Phase 3 magrolimab trials in AML, one with venetoclax and azacitidine (NCT05079230) and one in TP53-mutant disease (NCT04778397), for futility.",
+      "reason": "The sponsor (Gilead), the futility rationale, the drug combinations and the TP53-mutant population are not in the evidence. The evidence only shows the trials as PHASE3 and TERMINATED."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Momentum has collapsed. Of 18 trials, 11 are halted, 2 of them in the past year, and only 3 are active. No trial has been updated in the last 90 days. One of the active trials, NCT04214249, is a pembrolizumab study that probably only matched the search terms.",
+      "reason": "Calling NCT04214249 a pembrolizumab study that only matched the search terms relies on outside knowledge. The evidence only gives its phase, status and date."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "CD47 is not essential for AML cell growth (DepMap median effect 0.061 across 57 AML lines). That fits its role as a 'don't eat me' signal to immune cells rather than a dependency of the tumour itself.",
+      "reason": "The 'don't eat me' immune-signalling explanation is outside knowledge and is not supported by the cited DepMap facts."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The target is highly antibody-tractable (5 antibody tractability buckets) and Open Targets lists no safety liabilities. But tractability was never the problem: drugs reached Phase 3 and still failed on efficacy, and one investigator-led Phase 2 (NCT05829434) was withdrawn, reportedly for safety reasons.",
+      "reason": "The evidence does not say NCT05829434 was investigator-led or withdrawn for safety reasons. It only shows PHASE2|WITHDRAWN|2024-02-12."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 23.63,
+   "usage": {
+    "input_tokens": 15831,
+    "output_tokens": 1967
+   },
+   "cost_usd": 0.102664,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": false,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "FGFR2",
+   "indication": "cholangiocarcinoma",
+   "status": "ok",
+   "output": {
+    "target": "FGFR2",
+    "indication": "cholangiocarcinoma",
+    "disease_id": "MONDO_0019087",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "FGFR2 in cholangiocarcinoma is a validated target, with approved inhibitors and strong Open Targets support. It is also crowded: 21 active trials and repeated first-line Phase 3 terminations make a new entrant hard to justify unless it addresses resistance or offers clear selectivity.",
+    "claims": [
+     {
+      "text": "Clinical validation is strong. FGFR2-directed drugs have reached approval in this indication, and the Open Targets clinical evidence score is 0.9569 (overall association 0.6651).",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9569"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.6651"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Genetic support comes from somatic mutation evidence (0.365), not germline. The germline genetic association score is 0, which fits a tumour driven by fusions and rearrangements.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.365"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The claim that the tumour is driven by fusions and rearrangements is outside knowledge; the evidence does not show this."
+     },
+     {
+      "text": "The field is heavily crowded. There are 27 drugs against the target, 21 active trials, 32 sponsors and 29 industry trials, so a new FGFR2 inhibitor would need clear differentiation, such as activity against resistance mutations.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.drugs.count",
+        "value": "27"
+       },
+       {
+        "fact": "ct.active",
+        "value": "21"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "32"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "29"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The point about activity against resistance mutations is outside knowledge."
+     },
+     {
+      "text": "First-line Phase 3 programmes keep stalling. Incyte's pemigatinib-versus-chemotherapy trial (NCT03656536) was terminated in the past year because the first-line standard of care changed, not for safety reasons. In total, 11 trials have been halted, including Phase 3 terminations of futibatinib (poor recruitment) and infigratinib (development discontinued). Activity remains high, with 13 trials updated in the last 90 days.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "1"
+       },
+       {
+        "fact": "trial.NCT03656536",
+        "value": "PHASE3|TERMINATED|2026-08-11"
+       },
+       {
+        "fact": "ct.halted",
+        "value": "11"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "13"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Sponsor names, drug names, termination reasons, first-line context and the Phase 3 terminations of futibatinib and infigratinib are not in the evidence; they come from outside knowledge."
+     },
+     {
+      "text": "The target is highly tractable for both small molecules (5 buckets) and antibodies (4 buckets), and Open Targets lists 0 safety liabilities. DepMap shows no pan-essentiality (median effect -0.049), which suggests a tolerable on-target window.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.SM",
+        "value": "5"
+       },
+       {
+        "fact": "ot.tract.AB",
+        "value": "4"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.median_effect",
+        "value": "-0.049"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Calling the target 'highly tractable' and inferring a 'tolerable on-target window' goes beyond the bucket counts in the evidence."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 27648,
+    "input_tokens": 18856,
+    "output_tokens": 1697,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 3310,
+      "input_tokens": 2593,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 60,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 18003,
+      "input_tokens": 11933,
+      "output_tokens": 1356,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 6319,
+      "input_tokens": 4330,
+      "output_tokens": 233,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Genetic support comes from somatic mutation evidence (0.365), not germline. The germline genetic association score is 0, which fits a tumour driven by fusions and rearrangements.",
+      "reason": "The claim that the tumour is driven by fusions and rearrangements is outside knowledge; the evidence does not show this."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The field is heavily crowded. There are 27 drugs against the target, 21 active trials, 32 sponsors and 29 industry trials, so a new FGFR2 inhibitor would need clear differentiation, such as activity against resistance mutations.",
+      "reason": "The point about activity against resistance mutations is outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "First-line Phase 3 programmes keep stalling. Incyte's pemigatinib-versus-chemotherapy trial (NCT03656536) was terminated in the past year because the first-line standard of care changed, not for safety reasons. In total, 11 trials have been halted, including Phase 3 terminations of futibatinib (poor recruitment) and infigratinib (development discontinued). Activity remains high, with 13 trials updated in the last 90 days.",
+      "reason": "Sponsor names, drug names, termination reasons, first-line context and the Phase 3 terminations of futibatinib and infigratinib are not in the evidence; they come from outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The target is highly tractable for both small molecules (5 buckets) and antibodies (4 buckets), and Open Targets lists 0 safety liabilities. DepMap shows no pan-essentiality (median effect -0.049), which suggests a tolerable on-target window.",
+      "reason": "Calling the target 'highly tractable' and inferring a 'tolerable on-target window' goes beyond the bucket counts in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 28.36,
+   "usage": {
+    "input_tokens": 18856,
+    "output_tokens": 1697
+   },
+   "cost_usd": 0.109364,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": false,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "NECTIN4",
+   "indication": "urothelial carcinoma",
+   "status": "ok",
+   "output": {
+    "target": "NECTIN4",
+    "indication": "urothelial carcinoma",
+    "disease_id": "MONDO_0040679",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "NECTIN4 in urothelial carcinoma is a clinically proven target with an approved drug, but the field is very crowded and has no genetic support. Keep tracking and only open diligence for a clearly differentiated asset.",
+    "claims": [
+     {
+      "text": "The target suits antibodies and conjugates, with 4 antibody tractability buckets and 0 small-molecule buckets. It is not essential in DepMap, which fits a surface-antigen payload-delivery approach. Open Targets lists 1 safety liability.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "4"
+       },
+       {
+        "fact": "ot.tract.SM",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "1"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "The clinical case is proven. Enfortumab vedotin, a Nectin-4 antibody-drug conjugate, is approved, and the Open Targets clinical evidence score is high.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.8345"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Names enfortumab vedotin as the approved Nectin-4 ADC, which is outside knowledge. The evidence does not name the drug."
+     },
+     {
+      "text": "The field is very crowded: 68 trials are active across 57 sponsors, 38 of them industry trials. Lilly, Pfizer, Merck, Daiichi Sankyo and Bicycle are all running Nectin-4 or enfortumab vedotin combination programs, so a new entrant would need clear differentiation.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "68"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "57"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "38"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Names Lilly, Pfizer, Merck, Daiichi Sankyo and Bicycle as running programs, which is outside knowledge not in the evidence."
+     },
+     {
+      "text": "Genetic support is absent: the genetic association, genetic literature and somatic mutation scores are all 0. The overall association of 0.5238 comes from clinical and literature evidence, not human genetics.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.5238"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.5409"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Says genetic literature is 0 without citing that fact. It also attributes the overall score to clinical and literature evidence, which is interpretation; the core numbers are fine, but the attribution is an unsupported inference."
+     },
+     {
+      "text": "Momentum is high, with 31 trials updated in the last 90 days. 3 trials were halted in the past 365 days, but the stated reasons are strategic, or objectives already met, rather than safety or futility.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.updated_90d",
+        "value": "31"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "3"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The halt reasons (strategic, or objectives met rather than safety or futility) are not in the evidence."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 25342,
+    "input_tokens": 18304,
+    "output_tokens": 1521,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 4276,
+      "input_tokens": 2592,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 93,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 15203,
+      "input_tokens": 10369,
+      "output_tokens": 1146,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 5847,
+      "input_tokens": 5343,
+      "output_tokens": 267,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The clinical case is proven. Enfortumab vedotin, a Nectin-4 antibody-drug conjugate, is approved, and the Open Targets clinical evidence score is high.",
+      "reason": "Names enfortumab vedotin as the approved Nectin-4 ADC, which is outside knowledge. The evidence does not name the drug."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The field is very crowded: 68 trials are active across 57 sponsors, 38 of them industry trials. Lilly, Pfizer, Merck, Daiichi Sankyo and Bicycle are all running Nectin-4 or enfortumab vedotin combination programs, so a new entrant would need clear differentiation.",
+      "reason": "Names Lilly, Pfizer, Merck, Daiichi Sankyo and Bicycle as running programs, which is outside knowledge not in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Genetic support is absent: the genetic association, genetic literature and somatic mutation scores are all 0. The overall association of 0.5238 comes from clinical and literature evidence, not human genetics.",
+      "reason": "Says genetic literature is 0 without citing that fact. It also attributes the overall score to clinical and literature evidence, which is interpretation; the core numbers are fine, but the attribution is an unsupported inference."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Momentum is high, with 31 trials updated in the last 90 days. 3 trials were halted in the past 365 days, but the stated reasons are strategic, or objectives already met, rather than safety or futility.",
+      "reason": "The halt reasons (strategic, or objectives met rather than safety or futility) are not in the evidence."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 26.07,
+   "usage": {
+    "input_tokens": 18304,
+    "output_tokens": 1521
+   },
+   "cost_usd": 0.103636,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "DLL3",
+   "indication": "small cell lung cancer",
+   "status": "ok",
+   "output": {
+    "target": "DLL3",
+    "indication": "small cell lung carcinoma",
+    "disease_id": "MONDO_0008433",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "DLL3 in SCLC is proven as a target, with an approved drug (tarlatamab) and late-stage trials, but the field is so crowded that a new entrant must clearly stand out. Keep tracking rather than starting active diligence.",
+    "claims": [
+     {
+      "text": "There is no human genetic support: the germline genetic, genetic literature and somatic mutation scores are all 0. DepMap shows SCLC cell lines do not depend on DLL3 (median effect -0.062), so its value is as a surface marker that drugs can home in on, not as a cause of the disease.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.062"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Clinical proof is strong. Open Targets lists an approved DLL3 drug for this indication (tarlatamab), and the clinical evidence score is 0.9246. The overall association is 0.5931, which counts as strong.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9246"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.5931"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Names tarlatamab, which does not appear in the evidence; the drug identity comes from outside knowledge."
+     },
+     {
+      "text": "Competition is very heavy. There are 59 active trials from 40 sponsors, including 13 Phase 3 trials. Those span T-cell engagers, ADCs, CAR-T and radioligands, so any new asset would need a clear edge.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "59"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "40"
+       },
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "13"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The modality breakdown (T-cell engagers, ADCs, CAR-T, radioligands) is not in the evidence; it comes from outside knowledge."
+     },
+     {
+      "text": "DLL3 suits antibody-based drugs (3 antibody tractability buckets) and Open Targets lists no safety liabilities. However, rovalpituzumab tesirine, an earlier DLL3 ADC, failed: its Phase 3 maintenance trial was stopped on the data monitoring committee's recommendation. So how a drug hits DLL3 matters.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "3"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "trial.NCT03033511",
+        "value": "PHASE3|TERMINATED|2021-07-29"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The drug name rovalpituzumab tesirine and the data monitoring committee stopping reason are not in the evidence; the trial fact gives only the phase, status and date."
+     },
+     {
+      "text": "Activity is high, with 33 trials updated in the last 90 days. The single trial halted in the past year was a withdrawn NCI combination study where the drug supplier pulled support, not a safety or efficacy signal.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ct.updated_90d",
+        "value": "33"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "1"
+       },
+       {
+        "fact": "trial.NCT07328490",
+        "value": "PHASE2|WITHDRAWN|2026-04-28"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The NCI sponsor, the combination design and the supplier withdrawing support are not in the evidence; the fact gives only PHASE2, WITHDRAWN and a date."
+     }
+    ],
+    "claims_removed": 4,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 25487,
+    "input_tokens": 18500,
+    "output_tokens": 1982,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2701,
+      "input_tokens": 2590,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 90,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 13010,
+      "input_tokens": 10507,
+      "output_tokens": 1357,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 9761,
+      "input_tokens": 5403,
+      "output_tokens": 517,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical proof is strong. Open Targets lists an approved DLL3 drug for this indication (tarlatamab), and the clinical evidence score is 0.9246. The overall association is 0.5931, which counts as strong.",
+      "reason": "Names tarlatamab, which does not appear in the evidence; the drug identity comes from outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Competition is very heavy. There are 59 active trials from 40 sponsors, including 13 Phase 3 trials. Those span T-cell engagers, ADCs, CAR-T and radioligands, so any new asset would need a clear edge.",
+      "reason": "The modality breakdown (T-cell engagers, ADCs, CAR-T, radioligands) is not in the evidence; it comes from outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "DLL3 suits antibody-based drugs (3 antibody tractability buckets) and Open Targets lists no safety liabilities. However, rovalpituzumab tesirine, an earlier DLL3 ADC, failed: its Phase 3 maintenance trial was stopped on the data monitoring committee's recommendation. So how a drug hits DLL3 matters.",
+      "reason": "The drug name rovalpituzumab tesirine and the data monitoring committee stopping reason are not in the evidence; the trial fact gives only the phase, status and date."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Activity is high, with 33 trials updated in the last 90 days. The single trial halted in the past year was a withdrawn NCI combination study where the drug supplier pulled support, not a safety or efficacy signal.",
+      "reason": "The NCI sponsor, the combination design and the supplier withdrawing support are not in the evidence; the fact gives only PHASE2, WITHDRAWN and a date."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 1,
+      "removed": 4
+     }
+    ]
+   },
+   "latency_s": 26.16,
+   "usage": {
+    "input_tokens": 18500,
+    "output_tokens": 1982
+   },
+   "cost_usd": 0.11364,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "LAG3",
+   "indication": "melanoma",
+   "status": "ok",
+   "output": {
+    "target": "LAG3",
+    "indication": "melanoma",
+    "disease_id": "MONDO_0005105",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "LAG3 in melanoma is clinically proven, with relatlimab approved, but the field is crowded, there is no genetic support, and a Phase 3 adjuvant trial was recently terminated. A new entrant would need a clear point of difference.",
+    "claims": [
+     {
+      "text": "There is no genetic support: the germline genetic association, genetic literature and somatic mutation scores are all 0. The overall association of 0.5834 comes from clinical and literature evidence.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.5834"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.8896"
+       }
+      ]
+     },
+     {
+      "text": "Antibodies are a well-proven modality here (5 antibody tractability buckets) and no safety liabilities are flagged. LAG3 is not essential in DepMap (median effect -0.004), which suits an immune checkpoint target.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "5"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.median_effect",
+        "value": "-0.004"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Clinical validation is strong. The Open Targets clinical score is 0.9152, the most advanced drug in melanoma has reached APPROVAL (relatlimab), and the highest trial phase is PHASE4.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.assoc.clinical",
+        "value": "0.9152"
+       },
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "APPROVAL"
+       },
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE4"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Names relatlimab, which comes from outside knowledge; the evidence only gives the stage APPROVAL."
+     },
+     {
+      "text": "The field is very crowded. There are 6 drugs against LAG3, 45 active trials and 50 sponsors, including a Phase 3 head-to-head trial of fianlimab against relatlimab, so a new asset would need clear differentiation.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ot.drugs.count",
+        "value": "6"
+       },
+       {
+        "fact": "ct.active",
+        "value": "45"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "50"
+       },
+       {
+        "fact": "trial.NCT06246916",
+        "value": "PHASE3|RECRUITING|2026-10-07"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence does not identify NCT06246916 as a head-to-head trial of fianlimab against relatlimab; that detail is outside knowledge."
+     },
+     {
+      "text": "Momentum is mixed. 5 trials were halted in the last 365 days, including BMS's Phase 3 adjuvant nivolumab plus relatlimab trial, which ended for inability to meet protocol objectives. Activity is still high, with 24 trials updated in the last 90 days.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "5"
+       },
+       {
+        "fact": "trial.NCT05002569",
+        "value": "PHASE3|TERMINATED|2026-01-08"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "24"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence does not identify NCT05002569 as BMS's adjuvant nivolumab plus relatlimab trial or give its termination reason; those details are outside knowledge."
+     }
+    ],
+    "claims_removed": 3,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 26764,
+    "input_tokens": 20529,
+    "output_tokens": 1582,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 3378,
+      "input_tokens": 2576,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 90,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 18757,
+      "input_tokens": 12599,
+      "output_tokens": 1278,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 4616,
+      "input_tokens": 5354,
+      "output_tokens": 196,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical validation is strong. The Open Targets clinical score is 0.9152, the most advanced drug in melanoma has reached APPROVAL (relatlimab), and the highest trial phase is PHASE4.",
+      "reason": "Names relatlimab, which comes from outside knowledge; the evidence only gives the stage APPROVAL."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The field is very crowded. There are 6 drugs against LAG3, 45 active trials and 50 sponsors, including a Phase 3 head-to-head trial of fianlimab against relatlimab, so a new asset would need clear differentiation.",
+      "reason": "The evidence does not identify NCT06246916 as a head-to-head trial of fianlimab against relatlimab; that detail is outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Momentum is mixed. 5 trials were halted in the last 365 days, including BMS's Phase 3 adjuvant nivolumab plus relatlimab trial, which ended for inability to meet protocol objectives. Activity is still high, with 24 trials updated in the last 90 days.",
+      "reason": "The evidence does not identify NCT05002569 as BMS's adjuvant nivolumab plus relatlimab trial or give its termination reason; those details are outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 2,
+      "removed": 3
+     }
+    ]
+   },
+   "latency_s": 27.48,
+   "usage": {
+    "input_tokens": 20529,
+    "output_tokens": 1582
+   },
+   "cost_usd": 0.113756,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "GPC3",
+   "indication": "hepatocellular carcinoma",
+   "status": "ok",
+   "output": {
+    "target": "GPC3",
+    "indication": "hepatocellular carcinoma",
+    "disease_id": "MONDO_0007256",
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE2",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "watch",
+    "headline": "GPC3 in HCC is a proven, antibody-tractable tumour antigen, but the field is very crowded and no programme has reached Phase 3. Keep tracking it rather than starting diligence now.",
+    "claims": [
+     {
+      "text": "The genetic evidence is somatic only: the somatic mutation score is 0.5319, while germline genetic association is 0. The overall Open Targets association is moderate, driven mostly by literature.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.5319"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0.0"
+       },
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.368"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.9965"
+       }
+      ]
+     },
+     {
+      "text": "The target suits antibody-type drugs: there are 6 antibody tractability buckets and 0 for small molecules. It is not essential to cancer cells in DepMap, which fits its use as a surface antigen for antibodies, ADCs and CAR-T rather than as something tumours depend on.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "6"
+       },
+       {
+        "fact": "ot.tract.SM",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "0.071"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "The field is very crowded: 44 active trials, 53 sponsors and 31 industry trials. Programmes from AstraZeneca, Bayer and RayzeBio are among the recently updated trials.",
+      "severity": "red",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "44"
+       },
+       {
+        "fact": "ct.sponsors",
+        "value": "53"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "31"
+       },
+       {
+        "fact": "trial.NCT06084884",
+        "value": "PHASE2|ACTIVE_NOT_RECRUITING|2026-08-19"
+       },
+       {
+        "fact": "trial.NCT06764316",
+        "value": "PHASE1|RECRUITING|2026-10-21"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The sponsor names (AstraZeneca, Bayer, RayzeBio) do not appear in the evidence. The cited trial facts give only phase, status and date, so the attribution relies on outside knowledge."
+     },
+     {
+      "text": "Clinical validation is still early. The highest phase is Phase 2, with 0 Phase 3 trials, and the only drug Open Targets lists (codrituzumab) peaked at Phase 2.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.highest_phase",
+        "value": "PHASE2"
+       },
+       {
+        "fact": "ct.phase.PHASE3",
+        "value": "0"
+       },
+       {
+        "fact": "ot.drugs.max_stage_indication",
+        "value": "PHASE_2"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The drug name 'codrituzumab' is not in the evidence, which records only ot.drugs.count=1 and the max stage. Naming it relies on outside knowledge."
+     },
+     {
+      "text": "Two trials were halted in the past year. Both were early CAR-T studies suspended for administrative or regulatory reasons, not for safety or efficacy. Open Targets lists 0 safety liabilities.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.halted_365d",
+        "value": "2"
+       },
+       {
+        "fact": "trial.NCT06968195",
+        "value": "PHASE1|SUSPENDED|2026-09-15"
+       },
+       {
+        "fact": "trial.NCT06653023",
+        "value": "EARLY_PHASE1|SUSPENDED|2026-05-07"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The evidence gives only phase, status and date for the halted trials. Calling them CAR-T studies suspended for administrative or regulatory reasons, not safety or efficacy, is unsupported outside knowledge."
+     }
+    ],
+    "claims_removed": 3,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 24339,
+    "input_tokens": 18090,
+    "output_tokens": 2083,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2558,
+      "input_tokens": 2585,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 89,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 14407,
+      "input_tokens": 10187,
+      "output_tokens": 1446,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "watch",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 7359,
+      "input_tokens": 5318,
+      "output_tokens": 529,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "The field is very crowded: 44 active trials, 53 sponsors and 31 industry trials. Programmes from AstraZeneca, Bayer and RayzeBio are among the recently updated trials.",
+      "reason": "The sponsor names (AstraZeneca, Bayer, RayzeBio) do not appear in the evidence. The cited trial facts give only phase, status and date, so the attribution relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Clinical validation is still early. The highest phase is Phase 2, with 0 Phase 3 trials, and the only drug Open Targets lists (codrituzumab) peaked at Phase 2.",
+      "reason": "The drug name 'codrituzumab' is not in the evidence, which records only ot.drugs.count=1 and the max stage. Naming it relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Two trials were halted in the past year. Both were early CAR-T studies suspended for administrative or regulatory reasons, not for safety or efficacy. Open Targets lists 0 safety liabilities.",
+      "reason": "The evidence gives only phase, status and date for the halted trials. Calling them CAR-T studies suspended for administrative or regulatory reasons, not safety or efficacy, is unsupported outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 2,
+      "removed": 3
+     }
+    ]
+   },
+   "latency_s": 25.1,
+   "usage": {
+    "input_tokens": 18090,
+    "output_tokens": 2083
+   },
+   "cost_usd": 0.11402,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE2",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": false,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "targetwatch",
+   "target": "CDH17",
+   "indication": "colorectal cancer",
+   "status": "ok",
+   "output": {
+    "target": "CDH17",
+    "indication": "colorectal cancer",
+    "disease_id": "MONDO_0005575",
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "y",
+    "antibody_tractable": "y",
+    "verdict": "advance",
+    "headline": "CDH17 in colorectal cancer: a surface antigen that antibodies, ADCs and CAR-Ts can reach, with fast-growing industry interest. Several Phase 2 programmes are now enrolling and Open Targets lists no safety liabilities. It is worth active diligence, but genetic support is somatic only and the field is filling up.",
+    "claims": [
+     {
+      "text": "Open Targets gives a moderate overall association, driven mostly by literature. Direct evidence is thin. The only genetic signal is somatic mutation; germline genetic association is 0, so there is no germline evidence.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ot.assoc.overall",
+        "value": "0.2937"
+       },
+       {
+        "fact": "ot.assoc.direct",
+        "value": "0.0554"
+       },
+       {
+        "fact": "ot.assoc.somatic_mutation",
+        "value": "0.4388"
+       },
+       {
+        "fact": "ot.assoc.genetic_association",
+        "value": "0"
+       },
+       {
+        "fact": "ot.assoc.literature",
+        "value": "0.8877"
+       }
+      ]
+     },
+     {
+      "text": "CDH17 is clearly suited to antibody-based drugs: it scores in 3 antibody tractability buckets and 0 small-molecule buckets. Open Targets records 0 safety liabilities.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ot.tract.AB",
+        "value": "3"
+       },
+       {
+        "fact": "ot.tract.SM",
+        "value": "0"
+       },
+       {
+        "fact": "ot.safety.count",
+        "value": "0"
+       }
+      ]
+     },
+     {
+      "text": "DepMap shows CDH17 is not essential for tumour cell survival, with a median effect of -0.008 across 64 colorectal lines. That is expected for a target used to deliver a payload or direct T cells rather than to block a driver, but it means efficacy depends on the drug format.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "depmap.is_essential",
+        "value": "0"
+       },
+       {
+        "fact": "depmap.indication_median_effect",
+        "value": "-0.008"
+       },
+       {
+        "fact": "depmap.indication_lines",
+        "value": "64"
+       }
+      ]
+     }
+    ],
+    "removed_claims": [
+     {
+      "text": "Interest is rising quickly. There are 7 active trials, 6 updated in the last 90 days and 10 industry-sponsored, including CAR-T and antibody-drug programmes in Phase 2. The reported top phase of PHASE4 is misleading: that trial (NCT04813913) is a bevacizumab study picked up by the keyword search, not a CDH17 drug.",
+      "severity": "green",
+      "citations": [
+       {
+        "fact": "ct.active",
+        "value": "7"
+       },
+       {
+        "fact": "ct.updated_90d",
+        "value": "6"
+       },
+       {
+        "fact": "ct.industry_trials",
+        "value": "10"
+       },
+       {
+        "fact": "trial.NCT07693751",
+        "value": "PHASE2|RECRUITING|2026-09-21"
+       },
+       {
+        "fact": "trial.NCT04813913",
+        "value": "PHASE4|COMPLETED|2026-02-06"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "Claims about CAR-T and ADC programmes, and the statement that NCT04813913 is a bevacizumab study rather than a CDH17 drug, are not in the evidence; this relies on outside knowledge."
+     },
+     {
+      "text": "Competition is building: 20 sponsors appear in the trial set, and several CDH17 programmes are already in Phase 2. That leaves less room to differentiate. The one termination in the past year was a CDH17/GUCY2C CAR-T trial withdrawn for strategic reasons with no patients enrolled, so it says nothing about the target itself.",
+      "severity": "amber",
+      "citations": [
+       {
+        "fact": "ct.sponsors",
+        "value": "20"
+       },
+       {
+        "fact": "ct.halted_365d",
+        "value": "1"
+       },
+       {
+        "fact": "trial.NCT07152210",
+        "value": "NA|WITHDRAWN|2026-05-28"
+       }
+      ],
+      "removed_by": "skeptic",
+      "reason": "The description of NCT07152210 as a CDH17/GUCY2C CAR-T trial withdrawn for strategic reasons with no patients enrolled is not in the evidence. 'Several CDH17 programmes in Phase 2' relies on outside knowledge about what the trials test."
+     }
+    ],
+    "claims_removed": 2,
+    "precedents": "none",
+    "verdict_change": "",
+    "snapshot": {
+     "as_of": "2026-10-22",
+     "simulated": false,
+     "ot_release": "26.09"
+    },
+    "model": "claude-opus-5-5",
+    "latency_ms": 21163,
+    "input_tokens": 13022,
+    "output_tokens": 1810,
+    "steps": [
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 2828,
+      "input_tokens": 2578,
+      "output_tokens": 108,
+      "stop_reason": "tool_use",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_evidence",
+      "facts": 25,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_trials",
+      "facts": 35,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_previous_snapshot",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "tool",
+      "name": "get_past_decisions",
+      "facts": 0,
+      "latency_ms": 0
+     },
+     {
+      "agent": "analyst",
+      "type": "llm",
+      "latency_ms": 14802,
+      "input_tokens": 6896,
+      "output_tokens": 1497,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "analyst",
+      "type": "draft",
+      "verdict": "advance",
+      "claims": 5
+     },
+     {
+      "agent": "skeptic",
+      "type": "llm",
+      "latency_ms": 3519,
+      "input_tokens": 3548,
+      "output_tokens": 205,
+      "stop_reason": "end_turn",
+      "model": "claude-opus-5-5"
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Interest is rising quickly. There are 7 active trials, 6 updated in the last 90 days and 10 industry-sponsored, including CAR-T and antibody-drug programmes in Phase 2. The reported top phase of PHASE4 is misleading: that trial (NCT04813913) is a bevacizumab study picked up by the keyword search, not a CDH17 drug.",
+      "reason": "Claims about CAR-T and ADC programmes, and the statement that NCT04813913 is a bevacizumab study rather than a CDH17 drug, are not in the evidence; this relies on outside knowledge."
+     },
+     {
+      "agent": "skeptic",
+      "type": "removed",
+      "by": "skeptic",
+      "claim": "Competition is building: 20 sponsors appear in the trial set, and several CDH17 programmes are already in Phase 2. That leaves less room to differentiate. The one termination in the past year was a CDH17/GUCY2C CAR-T trial withdrawn for strategic reasons with no patients enrolled, so it says nothing about the target itself.",
+      "reason": "The description of NCT07152210 as a CDH17/GUCY2C CAR-T trial withdrawn for strategic reasons with no patients enrolled is not in the evidence. 'Several CDH17 programmes in Phase 2' relies on outside knowledge about what the trials test."
+     },
+     {
+      "agent": "skeptic",
+      "type": "done",
+      "kept": 3,
+      "removed": 2
+     }
+    ]
+   },
+   "latency_s": 21.89,
+   "usage": {
+    "input_tokens": 13022,
+    "output_tokens": 1810
+   },
+   "cost_usd": 0.088288,
+   "model": "claude-opus-5-5",
+   "served_by": [
+    "claude-opus-5-5"
+   ],
+   "answers": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": false,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "CLDN18",
+   "indication": "gastric cancer",
+   "prompt": "Target: CLDN18\nIndication: gastric cancer\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 7.98,
+   "usage": {
+    "input_tokens": 1089,
+    "output_tokens": 475,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.013856,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": false,
+    "recent_termination": false,
+    "ot_association": true,
+    "genetic_support": false,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "ERBB2",
+   "indication": "breast cancer",
+   "prompt": "Target: ERBB2\nIndication: breast cancer\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 3.49,
+   "usage": {
+    "input_tokens": 1088,
+    "output_tokens": 67,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.005692,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "EGFR",
+   "indication": "NSCLC",
+   "prompt": "Target: EGFR\nIndication: NSCLC\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 3.63,
+   "usage": {
+    "input_tokens": 1087,
+    "output_tokens": 67,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.005688,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "KRAS",
+   "indication": "NSCLC",
+   "prompt": "Target: KRAS\nIndication: NSCLC\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 8.09,
+   "usage": {
+    "input_tokens": 1087,
+    "output_tokens": 487,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.014088,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": false,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "BRAF",
+   "indication": "melanoma",
+   "prompt": "Target: BRAF\nIndication: melanoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 6.08,
+   "usage": {
+    "input_tokens": 1086,
+    "output_tokens": 474,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.013824,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "TACSTD2",
+   "indication": "breast cancer",
+   "prompt": "Target: TACSTD2\nIndication: breast cancer\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 7.11,
+   "usage": {
+    "input_tokens": 1089,
+    "output_tokens": 502,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.014396,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE4",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "IDO1",
+   "indication": "melanoma",
+   "prompt": "Target: IDO1\nIndication: melanoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 6.77,
+   "usage": {
+    "input_tokens": 1086,
+    "output_tokens": 490,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.014144,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "n"
+   },
+   "answers": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "n"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "TIGIT",
+   "indication": "NSCLC",
+   "prompt": "Target: TIGIT\nIndication: NSCLC\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 10.15,
+   "usage": {
+    "input_tokens": 1088,
+    "output_tokens": 877,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.021892,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "CD47",
+   "indication": "AML",
+   "prompt": "Target: CD47\nIndication: AML\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 10.18,
+   "usage": {
+    "input_tokens": 1083,
+    "output_tokens": 465,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.013632,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE3",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "FGFR2",
+   "indication": "cholangiocarcinoma",
+   "prompt": "Target: FGFR2\nIndication: cholangiocarcinoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 3.83,
+   "usage": {
+    "input_tokens": 1093,
+    "output_tokens": 69,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.005752,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "y",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "NECTIN4",
+   "indication": "urothelial carcinoma",
+   "prompt": "Target: NECTIN4\nIndication: urothelial carcinoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 11.09,
+   "usage": {
+    "input_tokens": 1093,
+    "output_tokens": 572,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.015812,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": false,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "DLL3",
+   "indication": "small cell lung cancer",
+   "prompt": "Target: DLL3\nIndication: small cell lung cancer\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 11.15,
+   "usage": {
+    "input_tokens": 1090,
+    "output_tokens": 564,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.01564,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "LAG3",
+   "indication": "melanoma",
+   "prompt": "Target: LAG3\nIndication: melanoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 6.22,
+   "usage": {
+    "input_tokens": 1086,
+    "output_tokens": 468,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.013704,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": ">20",
+    "highest_phase": "PHASE3",
+    "recent_termination": "y",
+    "ot_association": "strong",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": true,
+    "highest_phase": false,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": true,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "GPC3",
+   "indication": "hepatocellular carcinoma",
+   "prompt": "Target: GPC3\nIndication: hepatocellular carcinoma\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 9.26,
+   "usage": {
+    "input_tokens": 1093,
+    "output_tokens": 549,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.015352,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE2",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": "6-20",
+    "highest_phase": "PHASE2",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": false,
+    "highest_phase": true,
+    "recent_termination": true,
+    "ot_association": true,
+    "genetic_support": false,
+    "antibody_tractable": true
+   }
+  },
+  {
+   "system": "baseline",
+   "target": "CDH17",
+   "indication": "colorectal cancer",
+   "prompt": "Target: CDH17\nIndication: colorectal cancer\nAs of: 2026-10-22\n\nFill in six fields for this target in this indication, as of the date above. Matched trials are interventional studies on ClinicalTrials.gov in this indication that name the target (gene symbol or protein name) in their title, conditions or interventions, or whose interventions include a drug acting on the target.\n- active_trials_bin: matched trials that are recruiting, not yet recruiting, active and not recruiting, or enrolling by invitation: \"0\", \"1-5\", \"6-20\" or \">20\".\n- highest_phase: the highest phase of any matched trial, whatever its status: \"EARLY_PHASE1\", \"PHASE1\", \"PHASE2\", \"PHASE3\" or \"PHASE4\"; \"none\" if no matched trial has a phase.\n- recent_termination: \"y\" if a matched trial was terminated or withdrawn in the 12 months before the date above, else \"n\".\n- ot_association: the Open Targets Platform overall association score between the target and this disease, as shown on the disease's page (evidence for its subtypes included): \"strong\" if at least 0.5, \"moderate\" if at least 0.2, else \"weak\".\n- genetic_support: \"y\" if Open Targets has genetic association, genetic literature or somatic mutation evidence for the target in this disease, else \"n\".\n- antibody_tractable: \"y\" if Open Targets lists the target as tractable by antibody in any antibody tractability category, else \"n\".",
+   "latency_s": 11.94,
+   "usage": {
+    "input_tokens": 1089,
+    "output_tokens": 615,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": 0.016656,
+   "model": "claude-opus-5-5",
+   "stop_reason": "end_turn",
+   "status": "ok",
+   "output": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE2",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "answers": {
+    "active_trials_bin": "1-5",
+    "highest_phase": "PHASE2",
+    "recent_termination": "n",
+    "ot_association": "moderate",
+    "genetic_support": "n",
+    "antibody_tractable": "y"
+   },
+   "correct": {
+    "active_trials_bin": false,
+    "highest_phase": true,
+    "recent_termination": false,
+    "ot_association": true,
+    "genetic_support": false,
+    "antibody_tractable": true
+   }
+  }
+ ]
+}
